@@ -134,7 +134,7 @@
                 </form>
                 <a ng-click="removePlan = !removePlan" ng-show="!removePlan">Remove</a>
                 <button ng-show="removePlan" ng-click="data.methods.remove('plans', key)">Remove</button>
-                <a ng-show="removePlan" ng-click="data.methods.remove('plans', key)">Cancel</a>
+                <a ng-show="removePlan" ng-click="removePlan = !removePlan">Cancel</a>
             </div>
         </div>
     </div>
