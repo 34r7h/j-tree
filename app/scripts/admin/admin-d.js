@@ -7,7 +7,7 @@
 * # admin
 */
 angular.module('jtree')
-.directive('admin', function (Data)
+.directive('admin', function (Data, Api)
 {
     return {
         templateUrl: 'scripts/admin/admin-d.html',
@@ -23,6 +23,7 @@ angular.module('jtree')
         controller: function ($scope)
         {
             $scope.data = Data;
+            $scope.api = Api;
         }
     };
 });

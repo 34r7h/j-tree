@@ -10,14 +10,4 @@
     <h3>Admin</h3>
     <admin></admin>
 
-    <h3>User Data</h3>
-    <div ng-style="{width:(100 / Object.keys(api.models).length)}" ng-repeat="(key, section) in api.models">
-        <h5>{{key}}</h5>
-        <div ng-repeat="(key, use) in section">
-            <b>{{key}}: </b>{{use}}
-        </div>
-    </div>
-    <h3>Dummy Data</h3>
-    {{dummy.plans}}
-
 </div>

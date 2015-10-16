@@ -32,7 +32,17 @@ angular.module('jtree')
                 });
 
             },
-            save:function(){},
+            save:function(type, key, data){
+                var saveRef = ref + '/' + type + '/' + key;
+                var newFb = new fb(saveRef);
+                var obj = $firebaseObject(newFb);
+                obj.$value = data;
+                obj.$save().then(function(ref) {
+                    ref.key() === obj.$id; // true
+                }, function(error) {
+                    console.log("Error:", error);
+                });
+            },
             remove:function(type, key){
                 var removeRef = ref + '/' + type + '/' + key;
                 var newFb = new fb(removeRef);

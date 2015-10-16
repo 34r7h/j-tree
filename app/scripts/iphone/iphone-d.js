@@ -11,7 +11,6 @@ angular.module('jtree')
 {
     return {
         templateUrl: 'scripts/iphone/iphone-d.html',
-        
         restrict: 'EA',
         scope: {
 
