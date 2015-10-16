@@ -2,15 +2,15 @@
 
 /**
 * @ngdoc directive
-* @name jtree.directive:iphone
+* @name jtree.directive:admin
 * @description
-* # iphone
+* # admin
 */
 angular.module('jtree')
-.directive('iphone', function (Api, Dummy, Data)
+.directive('admin', function (Data)
 {
     return {
-        templateUrl: 'scripts/iphone/iphone-d.html',
+        templateUrl: 'scripts/admin/admin-d.html',
         
         restrict: 'EA',
         scope: {
@@ -22,10 +22,7 @@ angular.module('jtree')
         },
         controller: function ($scope)
         {
-            $scope.api = Api;
-            $scope.dummy = Dummy;
             $scope.data = Data;
-            // init values
         }
     };
 });

@@ -14,7 +14,9 @@ angular.module('jtree')
 
 
         // ACTUAL DEFINITION
-        var service = {
+        var service = {};
+        service.methods = {};
+        service.models = {
             capture:{},
             usage:{},
             offers:{}

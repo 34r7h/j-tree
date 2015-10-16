@@ -1,0 +1,6 @@
+<div class="admin">
+    <button ng-click="data.methods.create('plans', {testing:'go team!'})">Test me</button>
+    <div ng-repeat="(key, plan) in data.data.dataArr.$getRecord('plans')">
+        {{plan}} {{key}}<a href="" ng-click="data.methods.remove('plans', key)">Remove</a>
+    </div>
+</div>

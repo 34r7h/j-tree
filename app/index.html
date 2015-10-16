@@ -24,9 +24,8 @@
 </head>
 
 <body ng-app="jtree">
-
-
 <iphone></iphone>
+
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -43,16 +42,20 @@
 <!-- build:js({.tmp,app}) scripts/vendor.js -->
 <!-- bower:js -->
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <!-- inject:js -->
 <script src="scripts/_app.js"></script>
+<script src="scripts/admin/admin-d.js"></script>
 <script src="scripts/capture/capture-d.js"></script>
+<script src="scripts/global-services/api-f.js"></script>
+<script src="scripts/global-services/data-f.js"></script>
+<script src="scripts/global-services/dummy-f.js"></script>
 <script src="scripts/iphone/iphone-d.js"></script>
-<script src="scripts/main/global-services/api-f.js"></script>
-<script src="scripts/main/global-services/dummy-f.js"></script>
 <script src="scripts/offers/offers-d.js"></script>
 <script src="scripts/usage/usage-d.js"></script>
 <!-- endinject -->
