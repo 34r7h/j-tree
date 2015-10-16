@@ -1,0 +1,76 @@
+<button ng-click="$root.ui.show = 'usage';" style="float: right;">Enter your usage</button>
+<form name="captureForm" class="capture" ng-init="$root.ui.show = 'capture'; $root.ui.back = null">
+    <h2>Capture</h2>
+    <fieldset>
+        <h3>Personal Info</h3>
+        <label for="name">Name<input type="text" placeholder="Name" id="name" ng-model="api.capture.name"/></label>
+        <label for="email">Email<input type="email" placeholder="Email" id="email" ng-model="api.capture.email"/></label>
+        <label for="tel">Tel<input type="tel" placeholder="Tel" id="tel" ng-model="api.capture.tel"/></label>
+        <hr/>
+        <h3>Provider Info</h3>
+        <label for="providers">Provider
+            <select name="providers" id="providers" ng-model="api.capture.provider">
+                <option ng-repeat="provider in dummy.providers" value="{{provider}}">{{provider}}</option>
+            </select>
+        </label>
+        <div ng-style="{marginBottom: '1em'}">
+            <label for="business"><input id="business" type="radio" value="business" ng-model="api.capture.customerType"/>Business</label>
+            <label for="consumer"><input id="consumer" type="radio" value="consumer" ng-model="api.capture.customerType"/>Consumer</label>
+        </div>
+        <label for="spending" ng-if="api.capture.customerType === 'business'">
+            <h4>Monthly Spending</h4>
+            <div ng-style="{width:'100%', display:'flex'}">
+                <i ng-style="{flex: '1 1 auto'}" ng-click="api.capture.spending=1000">Less than $1,000</i>
+                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.capture.spending=2500">$1,000 - $4,000</i>
+                <i ng-style="{flex: '1 1 auto', textAlign:'right'}" ng-click="api.capture.spending=4000">More than $4,000</i>
+            </div>
+            <input
+                    type="range"
+                    id="spending"
+                    ng-model="api.capture.spending"
+                    min="1000"
+                    max="4000"
+                    step="1500"
+                    ng-init="api.capture.spending=2500"/>
+        </label>
+        <div>
+            <label for="contract" ng-style="{marginBottom:'1em'}">
+                <input ng-model="api.capture.contract" id="contract" type="checkbox" value="contract"/> Currently under contract
+            </label>
+            <div ng-if="api.capture.contract === true">
+                <h4>When is your contract up?</h4>
+                <label for="month" ng-init="months = [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December'
+
+                ]">
+                    <label for="month">Month
+                        <select name="month" id="month" ng-model="api.capture.contractExpire.month">
+                            <option ng-repeat="month in months" value="{{$index}}">{{month}}</option>
+                        </select>
+                    </label>
+                </label>
+                <label for="year" ng-init="years = [
+                    '2015',
+                    '2016',
+                    '2017',
+                    '2018'
+                ]">
+                    <label for="year">Year<select name="year" id="year" ng-model="api.capture.contractExpire.year">
+                        <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
+                    </select></label>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+</form>

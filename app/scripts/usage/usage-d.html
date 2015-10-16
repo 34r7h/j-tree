@@ -1,0 +1,55 @@
+<button ng-click="$root.ui.show = 'offers';" style="float: right;">View Best Offers</button>
+<form name="usageForm" class="usage" ng-init="$root.ui.show = 'usage'; $root.ui.back = 'capture'">
+    <h2>Usage</h2>
+    <fieldset>
+        <label for="dataRange">Data <b>{{api.usage.data}}MB</b>
+            <div ng-style="{display:'flex'}"><i ng-style="{flex: '0 1 20px'}">500MB</i>
+                <input
+                        type="range"
+                        id="dataRange"
+                        ng-model="api.usage.data"
+                        min="500"
+                        max="5000"
+                        step="500"
+                        ng-style="{flex: '5 0 200px'}"/>
+                <i ng-style="{flex: '0 1 20px'}">5GB+</i></div>
+        </label>
+        <label for="calls">Calls <b>{{api.usage.calls}}</b>
+            <div ng-style="{width:'100%', display:'flex'}">
+                <i ng-style="{flex: '0 1 20px'}">50</i>
+                <input
+                        type="range"
+                        id="calls"
+                        ng-model="api.usage.calls"
+                        min="50"
+                        max="550"
+                        step="50"
+                        ng-style="{flex: '5 0 200px'}"/>
+                <i ng-style="{flex: '0 1 20px'}">550+</i>
+            </div>
+        </label>
+        <label for="sms">Messages <b>{{api.usage.sms}}</b>
+            <div ng-style="{display:'flex'}"><i ng-style="{flex: '0 1 20px'}">50</i>
+            <input
+                    type="range"
+                    id="sms"
+                    ng-model="api.usage.sms"
+                    min="50"
+                    max="2000"
+                    step="50"
+                    ng-style="{flex: '5 0 200px'}"/>
+            <i ng-style="{flex: '0 1 20px'}">2000+</i></div>
+        </label>
+        <hr/>
+        <label for="happy">How do you feel about your current provider's service?
+            <div ng-style="{width:'100%', display:'flex'}">
+                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.capture.spending=1000">Very Unhappy</i>
+                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.capture.spending=1000">Unhappy</i>
+                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.capture.spending=2500">Content</i>
+                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.capture.spending=2500">Happy</i>
+                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.capture.spending=4000">Very Happy</i>
+            </div>
+            <input type="range" id="happy" ng-model="api.usage.happy"/>
+        </label>
+    </fieldset>
+</form>
