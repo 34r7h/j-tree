@@ -4,9 +4,13 @@
 
 input[type=text], input[type=email], input[type=tel], input[type=range], input[type=number], select {
   width:100%;
-  min-height: 45px;
+  height: 40px;
   font-size: 1.2em;
+  background: rgba(255,255,255,.6);
+  margin: .5em 0;
 }
+
+select, option {border:0;}
 
 hr {
   color:rgba(0,0,0,0.2)
@@ -14,4 +18,14 @@ hr {
 
 h4, h5 {
   margin: 0;
+}
+
+::-webkit-scrollbar, ::-webkit-scrollbar-button, ::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-corner, ::-webkit-resizer {color: rgba(0,0,0,0);
+  background:  rgba(0,0,0,0);}
+
+button {
+  color:#00D1FF;
+}
+button:disabled {
+  color:rgba(0,0,0,.4);
 }

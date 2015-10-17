@@ -60,6 +60,10 @@
                 <input id="name" type="text" ng-model="plan.name"/>
             </label>
             <hr/>
+            <label for="price">Price
+                <input id="price" type="text" ng-model="plan.price"/>
+            </label>
+            <hr/>
             <label for="data">Data
                 <input id="data" type="number" ng-model="plan.data"/>MB
             </label>
@@ -109,6 +113,10 @@
                     </label>
                     <label for="plan{{key}}-name">Name
                         <input type="text" ng-model="plan.name" id="plan{{key}}-name"/>
+                    </label>
+                    <hr/>
+                    <label for="plan{{key}}-price">Price
+                        <input type="text" ng-model="plan.price" id="plan{{key}}-price"/>
                     </label>
                     <hr/>
                     <label for="plan{{key}}-data">Data
