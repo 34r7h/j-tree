@@ -1,7 +1,24 @@
 <div class="admin">
+    <h2 ng-show="!$root.ui.admin.viewLeads"
+        ng-click="$root.ui.admin.viewLeads =! $root.ui.admin.viewLeads">+ View Leads</h2>
+
+    <h2 ng-show="$root.ui.admin.viewLeads"
+        ng-click="$root.ui.admin.viewLeads =! $root.ui.admin.viewLeads">- View Leads</h2>
+
+    <div ng-show="$root.ui.admin.viewLeads">
+        <div ng-repeat="(key,lead) in data.data.dataArr.$getRecord('leads')" ng-style="{background:'rgba(0,0,0, .2)', margin:'1em'}">
+            <span ng-repeat="(key, val) in lead" >
+                <b ng-show="key === 'date'">{{val | date}}</b>
+                <span ng-repeat="(key, val) in val" ng-show="$parent.key !== 'date'"><i ng-style="{textDecoration:'underline'}">{{key}}: </i>{{val}} </span>
+            </span>
+            <div><a ng-click="showRemove = !showRemove" ng-show="!showRemove">Remove</a>
+            <button ng-show="showRemove" ng-click="data.methods.remove('leads', key)">Remove</button>
+            <a ng-show="showRemove" ng-click="showRemove = !showRemove">Cancel</a></div>
+        </div>
+    </div>
+
     <h2 ng-show="!$root.ui.admin.providers" ng-click="$root.ui.admin.providers =! $root.ui.admin.providers ;">+
         Providers</h2>
-
     <h2 ng-show="$root.ui.admin.providers" ng-click="$root.ui.admin.providers =! $root.ui.admin.providers ;">-
         Providers</h2>
 
@@ -147,8 +164,8 @@
         </div>
     </div>
 
-    <h2 ng-show="!$root.ui.admin.showUser" ng-click="$root.ui.admin.showUser = !$root.ui.admin.showUser">+ User Data</h2>
-    <h2 ng-show="$root.ui.admin.showUser" ng-click="$root.ui.admin.showUser = !$root.ui.admin.showUser">- User Data</h2>
+    <h2 ng-show="!$root.ui.admin.showUser" ng-click="$root.ui.admin.showUser = !$root.ui.admin.showUser">+ Current User Data</h2>
+    <h2 ng-show="$root.ui.admin.showUser" ng-click="$root.ui.admin.showUser = !$root.ui.admin.showUser">- Current User Data</h2>
 
     <div ng-show="$root.ui.admin.showUser">
         <div ng-style="{width:(100 / Object.keys(api.models).length)}" ng-repeat="(key, section) in api.models">

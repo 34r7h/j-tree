@@ -15,10 +15,6 @@ angular.module('jtree')
         scope: {
 
         },
-        link: function (scope, el, attrs)
-        {
-
-        },
         controller: function ($scope)
         {
             $scope.api = Api;

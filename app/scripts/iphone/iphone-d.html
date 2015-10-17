@@ -18,9 +18,6 @@
 </div>
 <div ng-show="!$root.debug" ng-click="$root.debug =! $root.debug">+ Admin</div>
 <div ng-show="$root.debug" ng-click="$root.debug =! $root.debug">- Admin</div>
-<div ng-style="{margin:'1em', maxWidth:'200px', float:'left'}" ng-if="$root.debug">
-
-    <h3>Admin</h3>
+<span ng-style="{margin:'1em', maxWidth: '400px', float:'left'}" ng-if="$root.debug">
     <admin></admin>
-
-</div>
+</span>

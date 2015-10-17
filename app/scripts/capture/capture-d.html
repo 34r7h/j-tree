@@ -3,7 +3,7 @@
         name="captureForm"
         class="capture"
         ng-init="$root.ui.show = 'capture'; $root.ui.back = 'usage'"
-        ng-submit="$root.ui.show = 'offers'; api.methods.scrollTo('iphone');">
+        ng-submit="data.methods.create('leads', api.models); $root.ui.show = 'offers'; api.methods.scrollTo('iphone');">
     <div>
         <h2>Personal Info</h2>
         <label for="name">

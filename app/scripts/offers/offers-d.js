@@ -12,14 +12,6 @@ angular.module('jtree')
     return {
         templateUrl: 'scripts/offers/offers-d.html',
         
-        restrict: 'EA',
-        link: function (scope, el, attrs)
-        {
-
-        },
-        controller: function ($scope)
-        {
-
-        }
+        restrict: 'EA'
     };
 });
