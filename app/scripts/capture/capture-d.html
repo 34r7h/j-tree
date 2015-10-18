@@ -25,11 +25,11 @@
             <label for="consumer"><input id="consumer" type="radio" value="consumer" ng-model="api.models.capture.customerType"/>Consumer</label>
         </div>
         <label for="spending" ng-if="api.models.capture.customerType === 'business'">
-            <h4>Monthly Spending</h4>
+            <h4>Monthly Spending {{'$ '+api.models.capture.spending}}</h4>
             <div ng-style="api.style.flex.parent">
-                <i ng-style="{flex: '1 1 auto'}" ng-click="api.models.capture.spending=1000">Less than $1,000</i>
-                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.spending=2500">$1,000 - $4,000</i>
-                <i ng-style="{flex: '1 1 auto', textAlign:'right'}" ng-click="api.models.capture.spending=4000">More than $4,000</i>
+                <i ng-style="{flex: '1 0 auto'}" ng-click="api.models.capture.spending=1000">Less than $1K</i>
+                <i ng-style="{flex: '1 0 auto', textAlign:'center'}" ng-click="api.models.capture.spending=2500">$1K - $4K</i>
+                <i ng-style="{flex: '1 0 auto', textAlign:'right'}" ng-click="api.models.capture.spending=4000">$4K+</i>
             </div>
             <input
                     type="range"
@@ -37,8 +37,8 @@
                     ng-model="api.models.capture.spending"
                     min="1000"
                     max="4000"
-                    step="1500"
-                    ng-init="api.models.capture.spending=2500"/>
+                    step="100"
+                    />
         </label>
         <div>
             <label for="contract" ng-style="{marginBottom:'1em'}">
