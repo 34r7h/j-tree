@@ -6,10 +6,25 @@
         ng-click="$root.ui.admin.viewLeads =! $root.ui.admin.viewLeads">- View Leads</h2>
 
     <div ng-show="$root.ui.admin.viewLeads">
-        <div ng-repeat="(key,lead) in data.data.dataArr.$getRecord('leads')" ng-style="{background:'rgba(0,0,0, .2)', margin:'1em'}">
-            <span ng-repeat="(key, val) in lead" >
-                <b ng-show="key === 'date'">{{val | date}}</b>
-                <span ng-repeat="(key, val) in val" ng-show="$parent.key !== 'date'"><i ng-style="{textDecoration:'underline'}">{{key}}: </i>{{val}} </span>
+        <!--irth's fun -->
+        <!-- <div ng-style="api.style.flex.parent">
+            <label for="viewLeadsBackground" ng-style="api.style.flex.child">Background<input id="viewLeadsBackground" type="color" ng-model="api.style.viewLeads.background"/></label>
+            <label for="viewLeadsColor" ng-style="api.style.flex.child">Color<input id="viewLeadsColor" type="color" ng-model="api.style.viewLeads.color" /></label>
+
+            <label for="viewLeadsMargin" ng-style="api.style.flex.child">Margin<input id="viewLeadsMargin" type="number"  step=".1" ng-model="viewLeadsMargin" ng-change="api.style.viewLeads.marginBottom = viewLeadsMargin + 'em'"/></label>
+            <label for="viewLeadsPadding" ng-style="api.style.flex.child">Padding<input id="viewLeadsPadding" type="number" step=".1" ng-model="viewLeadsPadding" ng-change="api.style.viewLeads.padding = viewLeadsPadding + 'em'"/></label>
+        </div>-->
+
+        <div ng-repeat="(key,lead) in data.data.dataArr.$getRecord('leads')" ng-style="api.style.viewLeads">
+            <span ng-repeat="(key, val) in lead" ng-style="api.style.flex.parent">
+                <h5 ng-show="key === 'date'">{{val | date}}</h5>
+                <div
+                        ng-repeat="(key, val) in val" 
+                        ng-show="$parent.key !== 'date'"
+                        ng-style="api.style.flex.child"
+                        >
+                    <i ng-style="api.style.viewLeadsItem">{{key}}: <b>{{val}}</b></i>
+                </div>
             </span>
             <div><a ng-click="showRemove = !showRemove" ng-show="!showRemove">Remove</a>
             <button ng-show="showRemove" ng-click="data.methods.remove('leads', key)">Remove</button>
@@ -168,7 +183,7 @@
     <h2 ng-show="$root.ui.admin.showUser" ng-click="$root.ui.admin.showUser = !$root.ui.admin.showUser">- Current User Data</h2>
 
     <div ng-show="$root.ui.admin.showUser">
-        <div ng-style="{width:(100 / Object.keys(api.models).length)}" ng-repeat="(key, section) in api.models">
+        <div ng-repeat="(key, section) in api.models">
             <h5>{{key}}</h5>
             <div ng-repeat="(key, use) in section">
                 <b>{{key}}: </b>{{use}}

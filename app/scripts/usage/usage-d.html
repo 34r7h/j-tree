@@ -1,5 +1,5 @@
 <form name="usageForm" class="usage" ng-init="$root.ui.back = null; $root.ui.show = 'usage';" ng-submit="$root.ui.show = 'capture'; api.methods.scrollTo('iphone');">
-    <div>
+    <div ng-style="{textAlign:'center'}">
         <label for="dataRange">
             <h2>Data <b>{{api.models.usage.data}}<span ng-show="api.models.usage.data">MB</span></b></h2>
 
@@ -51,11 +51,9 @@
         <label for="happy">
             <h4>How do you feel about your current provider's service?</h4>
             <div ng-style="{width:'100%', display:'flex'}">
-                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.spending=1000">Very Unhappy</i>
-                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.spending=1000">Unhappy</i>
-                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.spending=2500">Content</i>
-                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.spending=2500">Happy</i>
-                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.spending=4000">Very Happy</i>
+                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.happy=0">Unhappy</i>
+                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.happy=50">Content</i>
+                <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.happy=100">Happy</i>
             </div>
             <input type="range" id="happy" ng-model="api.models.usage.happy"/>
         </label>

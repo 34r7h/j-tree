@@ -6,22 +6,24 @@
   width: 100%;
 }
 
-input[type=text], input[type=email], input[type=tel], input[type=range], input[type=number], select {
+input[type=text], input[type=email], input[type=tel], input[type=range], input[type=number], input[type=color], select {
   width:100%;
   height: 40px;
   font-size: 1.2em;
   background: rgba(255,255,255,.6);
-  margin: .5em 0;
+  margin: .25em 0;
 }
 
-select, option {border:0;}
+select, option, input[type=color]  {border:0;}
 
 hr {
   color:rgba(0,0,0,0.2)
 }
-
+h1, h2, h3 {
+  margin:.5em 0;
+}
 h4, h5 {
-  margin: 0;
+  margin: .25em 0;
 }
 
 ::-webkit-scrollbar, ::-webkit-scrollbar-button, ::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-corner, ::-webkit-resizer {color: rgba(0,0,0,0);

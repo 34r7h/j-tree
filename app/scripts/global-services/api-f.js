@@ -29,5 +29,32 @@ angular.module('jtree')
             offers:{}
         };
 
+        service.style = {
+            margin: {
+                bottom: {
+                    marginBottom:'1em'
+                }
+            },
+            flex: {
+                parent: {
+                    width:'100%',
+                    display:'flex',
+                    flexWrap:'wrap'
+                },
+                child: {
+                    flex: '1 1 auto'
+                }
+            },
+            viewLeads: {
+                background:'rgba(0,0,0, .2)',
+                marginBottom:'.25em'},
+            viewLeadsItem: {
+                textDecoration:'underline',
+                padding:'.1em'
+            }
+
+
+        };
+
         return service;
     });

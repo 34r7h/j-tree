@@ -20,13 +20,13 @@
                 <option ng-repeat="provider in dummy.providers" value="{{provider}}">{{provider}}</option>
             </select>
         </label>
-        <div ng-style="{marginBottom: '1em'}">
+        <div ng-style="api.style.margin.bottom">
             <label for="business"><input id="business" type="radio" value="business" ng-model="api.models.capture.customerType" ng-click="api.methods.scrollTo('spending')"/>Business</label>
             <label for="consumer"><input id="consumer" type="radio" value="consumer" ng-model="api.models.capture.customerType"/>Consumer</label>
         </div>
         <label for="spending" ng-if="api.models.capture.customerType === 'business'">
             <h4>Monthly Spending</h4>
-            <div ng-style="{width:'100%', display:'flex'}">
+            <div ng-style="api.style.flex.parent">
                 <i ng-style="{flex: '1 1 auto'}" ng-click="api.models.capture.spending=1000">Less than $1,000</i>
                 <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.spending=2500">$1,000 - $4,000</i>
                 <i ng-style="{flex: '1 1 auto', textAlign:'right'}" ng-click="api.models.capture.spending=4000">More than $4,000</i>
@@ -40,13 +40,11 @@
                     step="1500"
                     ng-init="api.models.capture.spending=2500"/>
         </label>
-        <hr/>
         <div>
             <label for="contract" ng-style="{marginBottom:'1em'}">
                 <input ng-model="api.models.capture.contract" id="contract" type="checkbox" value="contract" ng-click="api.models.capture.contract ? api.methods.scrollTo('month') : null"/> Currently under contract
             </label>
             <div ng-if="api.models.capture.contract === true">
-                <br/>
                 <p><b>When is your contract up?</b></p>
                 <div for="month" ng-init="months = [
                     'January',
@@ -84,6 +82,7 @@
             </div>
         </div>
     </div>
+    <br/>
     <button
             ng-style="{
             width:'100%',
