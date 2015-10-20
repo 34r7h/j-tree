@@ -30,6 +30,9 @@ angular.module('jtree')
         };
 
         service.style = {
+            motion: {
+                slide:'right'
+            },
             margin: {
                 bottom: {
                     marginBottom:'1em'

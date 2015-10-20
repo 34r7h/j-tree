@@ -8,4 +8,4 @@
  */
 'use strict';
 
-angular.module('jtree', ['firebase']);
+angular.module('jtree', ['firebase', 'ngAnimate']);

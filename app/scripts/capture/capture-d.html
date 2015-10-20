@@ -1,5 +1,6 @@
 
 <form
+
         name="captureForm"
         class="capture"
         ng-init="$root.ui.show = 'capture'; $root.ui.back = 'usage'"
@@ -12,7 +13,7 @@
             <input type="email" placeholder="Email" id="email" ng-model="api.models.capture.email"/></label>
         <label for="tel">
             <input type="tel" placeholder="Tel" id="tel" ng-model="api.models.capture.tel"/></label>
-        <hr/>
+        <br/>
         <h2>Provider Info</h2>
         <label for="providers">Provider
             <select name="providers" id="providers" ng-model="api.models.capture.provider">
@@ -84,6 +85,7 @@
     </div>
     <br/>
     <button
+            ng-click="api.style.motion.slide = 'right';"
             ng-style="{
             width:'100%',
             height:'80px',

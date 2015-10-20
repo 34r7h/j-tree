@@ -1,19 +1,20 @@
 <div
         class="iphone"
         id="iphone"
-        ng-style="{maxWidth:'432px', minHeight:'881px', float:'left', background:'url(\'images/iphone.png\')'}"
-        ng-init="$root.ui.back=null; $root.ui.show='usage'; ">
+        ng-style="{maxWidth:'432px', minHeight:'881px', float:'left',background:'rgba(76, 76, 77, 0',  backgroundImage:'url('+iphoneBg+')'}"
+        ng-init="$root.ui.back=null; $root.ui.show='usage'; iphoneBg = 'images/iphone-black.png';">
     <div
             ng-style="{margin:'27.2% 11%', height:'635px', overflow:'scroll'}"
             ng-init="$root.ui.show = 'usage';">
         <button
                 id="back"
-                ng-click="$root.ui.show=$root.ui.back"
+                ng-click="api.style.motion.slide='left'; $root.ui.show=$root.ui.back; api.style.motion.slide='right'; "
                 ng-show="$root.ui.back"
                 ng-style="{background:'rgba(255,255,255,.9)', borderRadius:'.5em', border:0, fontSize:'1.2em', marginTop:'.5em'}" >Back</button>
-        <usage ng-if="$root.ui.show === 'usage'"></usage>
-        <capture ng-if="$root.ui.show === 'capture'"></capture>
-        <offers ng-if="$root.ui.show === 'offers'"></offers>
+
+        <div ng-class="['slide-'+api.style.motion.slide, 'animate-show']" ng-show="$root.ui.show === 'usage'"><usage ng-if="$root.ui.show === 'usage'" id="usage"></usage></div>
+        <div ng-show="$root.ui.show === 'capture'" ng-class="['slide-'+api.style.motion.slide, 'animate-show']"><capture  ng-if="$root.ui.show === 'capture'" id="capture"></capture></div>
+        <div ng-show="$root.ui.show === 'offers'" ng-class="['slide-'+api.style.motion.slide, 'animate-show']"><offers id="offers" ng-if="$root.ui.show === 'offers'"></offers></div>
     </div>
 </div>
 <div ng-show="!$root.debug" ng-click="$root.debug =! $root.debug">+ Admin</div>

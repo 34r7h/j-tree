@@ -1,6 +1,14 @@
 * {
   font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial !important;
 }
+html {
+  background: rgba(39, 97, 147, 1);
+  margin: 0;
+}
+body {
+  margin:0;
+  padding: 1em;
+}
 
 .iphone{
   width: 100%;
@@ -35,3 +43,55 @@ button {
 button:disabled {
   color:rgba(0,0,0,.4);
 }
+
+
+/* another way to animate*/
+
+.animate-show {
+  opacity: 1;
+  background: inherit;
+  -ms-transition: 1.25s ease-in-out;
+  -webkit-transition: 1.25s ease-in-out;
+  transition:  1.25s ease-in-out;
+  transition-delay: 1s
+}
+
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: linear 0.3s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  // opacity: 0;
+  // padding: 0 10px;
+  -webkit-transform: translateX(200%);
+  transform: translateX(200%);
+}
+
+.slide-right.animate-show.ng-hide {
+  line-height: 0;
+  // opacity: 0;
+  // padding: 0 10px;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+.slide-left.animate-show.ng-hide {
+  line-height: 0;
+  // opacity: 0;
+  // padding: 0 10px;
+  -webkit-transform: translateX(200%);
+  transform: translateX(200%);
+}
+
+/*
+.check-element {
+  /!*padding: 10px;
+  border: 1px solid black;
+  background: white;*!/
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: inherit;
+  -ms-transition: 1.25s ease-in-out;
+  -webkit-transition: 1.25s ease-in-out;
+  transition:  1.25s ease-in-out;
+}*/

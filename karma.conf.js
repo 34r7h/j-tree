@@ -18,6 +18,7 @@ module.exports = function (config)
             'app/bower_components/angular/angular.js',
             'app/bower_components/firebase/firebase.js',
             'app/bower_components/angularfire/dist/angularfire.js',
+            'app/bower_components/angular-animate/angular-animate.js',
             'app/bower_components/angular-mocks/angular-mocks.js',
             // endbower
 

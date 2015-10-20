@@ -16,7 +16,8 @@
     "angularfire": "~1.1.3",
     "animate.css-scss": "latest",
     "es5-shim": "latest",
-    "json3": "latest"
+    "json3": "latest",
+    "angular-animate": "~1.4.7"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.15"
