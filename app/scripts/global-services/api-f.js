@@ -43,7 +43,7 @@ angular.module('jtree')
             },
             flex: {
                 parent: {
-                    width:'100%',
+                    width:'auto',
                     display:'flex',
                     flexWrap:'wrap'
                 },

@@ -1,7 +1,7 @@
-<div
+<div ng-style="{display:'flex'}"><div
         class="iphone"
         id="iphone"
-        ng-style="{width:'432px', height:'881px', float:'left',background:'rgba(76, 76, 77, 0)', backgroundImage:'url('+iphoneBg+')'}"
+        ng-style="{width:'432px', height:'881px', float:'left',background:'rgba(76, 76, 77, 0)', backgroundImage:'url('+iphoneBg+')', flex: '0 0 432px'}"
         ng-init="$root.ui.slide='slide-right'; $root.ui.back=null; $root.ui.show='orders'; iphoneBg = 'images/iphone-black.png';">
     <div
             ng-style="{margin:'27.2% 11%', height:'635px', overflow:'scroll', width: '360px'}"
@@ -10,7 +10,9 @@
                 id="back"
                 ng-click="api.style.back($root.ui.back); $root.ui.slide='slide-left'; "
                 ng-show="$root.ui.back"
-                ng-style="{background:'rgba(255,255,255,.9)', borderRadius:'4px', border:0, fontSize:'1em', marginTop:'.5em'}" >Back</button>
+                ng-style="{background:'rgba(255,255,255,.3)', borderRadius:'4px', border:0, fontSize:'1em', marginTop:'.5em'}">
+            Back
+        </button>
 
         <div
                 class="animate-show"
@@ -22,7 +24,7 @@
                 class="animate-show"
                 ng-show="$root.ui.show === 'capture'"
                 ng-class="$root.ui.slide">
-            <capture  ng-if="$root.ui.show === 'capture'" id="capture"></capture>
+            <capture ng-if="$root.ui.show === 'capture'" id="capture"></capture>
         </div>
         <div
                 class="animate-show"
@@ -32,8 +34,10 @@
         </div>
     </div>
 </div>
-<div ng-show="!$root.debug" ng-click="$root.debug =! $root.debug">+ Admin</div>
-<div ng-show="$root.debug" ng-click="$root.debug =! $root.debug">- Admin</div>
-<span ng-style="{margin:'1em', float:'left'}" ng-if="$root.debug">
-    <admin></admin>
-</span>
+<div ng-style="{flex:'1 1 auto'}">
+    <div ng-show="!$root.debug" ng-click="$root.debug =! $root.debug">+ Admin</div>
+    <div ng-show="$root.debug" ng-click="$root.debug =! $root.debug">- Admin</div>
+    <span ng-style="{margin:'1em', float:'left'}" ng-if="$root.debug">
+        <admin></admin>
+    </span>
+</div></div>
