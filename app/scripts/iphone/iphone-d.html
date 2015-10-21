@@ -1,16 +1,16 @@
 <div
         class="iphone"
         id="iphone"
-        ng-style="{maxWidth:'432px', minHeight:'881px', float:'left',background:'rgba(76, 76, 77, 0',  backgroundImage:'url('+iphoneBg+')'}"
-        ng-init="$root.ui.slide='slide-right'; $root.ui.back=null; $root.ui.show='usage'; iphoneBg = 'images/iphone-black.png';">
+        ng-style="{width:'432px', height:'881px', float:'left',background:'rgba(76, 76, 77, 0)', backgroundImage:'url('+iphoneBg+')'}"
+        ng-init="$root.ui.slide='slide-right'; $root.ui.back=null; $root.ui.show='orders'; iphoneBg = 'images/iphone-black.png';">
     <div
-            ng-style="{margin:'27.2% 11%', height:'635px', overflow:'scroll'}"
+            ng-style="{margin:'27.2% 11%', height:'635px', overflow:'scroll', width: '360px'}"
             ng-init="$root.ui.show = 'usage';">
         <button
                 id="back"
                 ng-click="api.style.back($root.ui.back); $root.ui.slide='slide-left'; "
                 ng-show="$root.ui.back"
-                ng-style="{background:'rgba(255,255,255,.9)', borderRadius:'.5em', border:0, fontSize:'1.2em', marginTop:'.5em'}" >Back</button>
+                ng-style="{background:'rgba(255,255,255,.9)', borderRadius:'4px', border:0, fontSize:'1em', marginTop:'.5em'}" >Back</button>
 
         <div
                 class="animate-show"
