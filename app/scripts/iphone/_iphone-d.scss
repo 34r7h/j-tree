@@ -44,7 +44,6 @@ button:disabled {
   color:rgba(0,0,0,.4);
 }
 
-
 /* another way to animate*/
 
 .animate-show {
@@ -53,36 +52,34 @@ button:disabled {
   -ms-transition: 1.25s ease-in-out;
   -webkit-transition: 1.25s ease-in-out;
   transition:  1.25s ease-in-out;
-  transition-delay: 1s
 }
 
 .animate-show.ng-hide-add, .animate-show.ng-hide-remove {
-  transition: linear 0.3s;
+  transition: linear 0.2s;
 }
 
-.animate-show.ng-hide {
+/*.animate-show.ng-hide {
   line-height: 0;
   // opacity: 0;
   // padding: 0 10px;
   -webkit-transform: translateX(200%);
   transform: translateX(200%);
-}
+}*/
 
 .slide-right.animate-show.ng-hide {
   line-height: 0;
-  // opacity: 0;
+  opacity: 0;
   // padding: 0 10px;
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
 .slide-left.animate-show.ng-hide {
   line-height: 0;
-  // opacity: 0;
+  opacity: 0;
   // padding: 0 10px;
-  -webkit-transform: translateX(200%);
-  transform: translateX(200%);
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
-
 /*
 .check-element {
   /!*padding: 10px;

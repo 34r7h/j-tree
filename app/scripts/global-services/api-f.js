@@ -6,7 +6,7 @@
  * Factory in the jtree.
  */
 angular.module('jtree')
-    .factory('Api', function ($location, $anchorScroll)
+    .factory('Api', function ($location, $anchorScroll, $rootScope)
     {
         'use strict';
 
@@ -30,8 +30,11 @@ angular.module('jtree')
         };
 
         service.style = {
-            motion: {
-                slide:'right'
+            forward: function(){
+                service.style.motion.slide='slide-right';
+            },
+            back: function(view){
+                $rootScope.ui.show=view;
             },
             margin: {
                 bottom: {

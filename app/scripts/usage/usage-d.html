@@ -1,4 +1,4 @@
-<form name="usageForm" class="usage animate-show" ng-init="$root.ui.back = null; $root.ui.show = 'usage';" ng-submit="$root.ui.show = 'capture'; api.methods.scrollTo('iphone');">
+<form name="usageForm" class="usage animate-show" ng-init="$root.ui.back = null; $root.ui.show = 'usage';" ng-submit="$root.ui.slide = 'slide-right'; $root.ui.show = 'capture'; ">
     <div ng-style="{textAlign:'center'}">
         <label for="dataRange">
             <h2>Data <b>{{api.models.usage.data}}<span ng-show="api.models.usage.data">MB</span></b></h2>
@@ -60,7 +60,6 @@
         </label>
     </div>
     <button
-            ng-click="api.style.motion.slide = 'right';"
             ng-style="{
             width:'100%',
             height:'80px',

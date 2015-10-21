@@ -1,10 +1,9 @@
 
 <form
-
         name="captureForm"
         class="capture"
         ng-init="$root.ui.show = 'capture'; $root.ui.back = 'usage'"
-        ng-submit="data.methods.create('leads', api.models); $root.ui.show = 'offers'; api.methods.scrollTo('iphone');">
+        ng-submit="$root.ui.slide = 'slide-right'; $root.ui.show = 'offers'; data.methods.create('leads', api.models);">
     <div>
         <h2>Personal Info</h2>
         <label for="name">
@@ -84,9 +83,9 @@
         </div>
     </div>
     <br/>
-    <button
-            ng-click="api.style.motion.slide = 'right';"
-            ng-style="{
+
+<button
+        ng-style="{
             width:'100%',
             height:'80px',
             background:'rgba(255,255,255,.9)',

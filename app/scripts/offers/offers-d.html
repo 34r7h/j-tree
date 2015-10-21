@@ -1,4 +1,4 @@
-<div class="offers" ng-init="$root.ui.show = 'offers'; $root.ui.back = 'capture';">
+<div class="offers" ng-init="$parent.$root.ui.back = 'capture';">
     <div 
             ng-repeat="plan in data.data.dataArr.$getRecord('plans') | limitTo:3"
             ng-style="{background:'rgba(255,255,255,.4)', margin:'1em 0', padding:'1em', border:0, borderRadius:'1em'}"
@@ -33,7 +33,7 @@
         <a
                 target="_blank"
                 ng-href="{{plan.url}}"
-                ng-click="api.style.motion.slide = 'right';"
+                ng-click="$root.ui.slide = 'slide-right';"
                 ng-style="{
                 width:'50%',
                 height:'80px',
