@@ -6,7 +6,7 @@
         ng-style="{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height:'618px'}">
     <div ng-style="{textAlign:'center', flex: '0 0 480px', display:'flex', flexDirection:'column', justifyContent:'space-around'}">
         <label ng-style="{flex:'0 0 20%'}" for="dataRange">
-            <h2>Data <b>{{api.models.usage.data}}<span ng-show="api.models.usage.data">MB</span></b></h2>
+            <h2>Data: <b>{{api.models.usage.data | number : -3}}<span ng-show="api.models.usage.data">MB</span></b></h2>
 
             <div ng-style="{}">
                 <i ng-style="{flex: '0 1 20px', float:'left'}">&frac12;GB</i>
@@ -17,12 +17,12 @@
                         ng-model="api.models.usage.data"
                         min="500"
                         max="5000"
-                        step="500"
+                        step=".1"
                         ng-style="{}"/>
             </div>
         </label>
         <label ng-style="{flex:'0 0 20%'}" for="calls">
-            <h2>Calls <b>{{api.models.usage.calls}}</b></h2>
+            <h2>Calls: <b>{{api.models.usage.calls | number : -2}}</b></h2>
             <div ng-style="{}">
                 <i ng-style="{flex: '0 1 20px', float:'left'}">50</i>
                 <i ng-style="{flex: '0 1 20px', float: 'right'}">550+</i>
@@ -32,12 +32,12 @@
                         ng-model="api.models.usage.calls"
                         min="50"
                         max="550"
-                        step="50"
+                        step=".1"
                         ng-style="{flex: '5 0 200px'}"/>
             </div>
         </label>
         <label ng-style="{flex:'0 0 20%'}" for="sms">
-            <h2>Messages <b>{{api.models.usage.sms}}</b></h2>
+            <h2>Messages: <b>{{api.models.usage.sms | number : -2}}</b></h2>
             <div ng-style="{}">
                 <i ng-style="{flex: '0 1 20px', float:'left'}">50</i>
                 <i ng-style="{flex: '0 1 20px', float:'right'}">2000+</i></div>
@@ -47,7 +47,7 @@
                         ng-model="api.models.usage.sms"
                         min="50"
                         max="2000"
-                        step="50"
+                        step="1"
                         ng-style="{flex: '5 0 200px'}"/>
         </label>
         <label ng-style="{flex:'0 0 20%'}" for="happy">
