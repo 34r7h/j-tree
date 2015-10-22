@@ -14,7 +14,10 @@
                 $parent.api.models.usage.calls <= (plan.calls.max +50) &&
                 $parent.api.models.usage.calls >= (plan.calls.min -50)
                 ">
-        <h4 ng-style="{flex: '0 1 33%', borderBottom:'2px solid rgba(0,0,0,.6)', display:'flex', justifyContent:'space-between'}" ><i>{{plan.provider | uppercase}} |</i> <b>{{plan.name | uppercase}} - ${{plan.price}}</b></h4>
+        <h4 ng-style="{flex: '0 1 33%', borderBottom:'2px solid rgba(0,0,0,.6)', display:'flex', justifyContent:'space-between'}" >
+            <b>{{plan.provider | uppercase}} |</b>
+            <a ng-style="{color:'rgba(0,0,0,.8)'}" target="_blank" ng-href="{{plan.url}}">{{plan.name | uppercase}} - ${{plan.price}}</a>
+        </h4>
         <div ng-style="{display:'flex', justifyContent:'space-between', flex: '1 1 33%'}">
             <div ng-style="{width:'33%', display:'flex', padding:'4px'}">
                 <div ng-style="{alignSelf:'center', textAlign:'center', width:'100%'}">
