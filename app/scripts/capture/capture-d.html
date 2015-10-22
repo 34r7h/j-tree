@@ -22,19 +22,17 @@
                     <option ng-repeat="provider in dummy.providers" value="{{provider}}">{{provider}}</option>
                 </select>
             </label>
-            <div ng-style="{flex:'1 1 20%', display:'flex', justifyContent:'space-between', margin:'4px 0'}" ng-style="api.style.margin.bottom">
-                <div ng-style="{flex:'1 0 50%'}">
-                    <label for="business">
-                        <button type="button" ng-click="api.models.capture.customerType = 'business'"><input id="business" type="radio" value="business" ng-model="api.models.capture.customerType" ng-click=""/>Business</button>
+            <div ng-style="{flex:'1 1 20%', display:'flex', justifyContent:'space-around', margin:'4px 0', width:'100%'}">
+                    <label for="business" ng-style="{background:'rgba(255,255,255,.4)', padding:'4px', borderRadius:'4px', flex:'1 0 30%', margin:'0 2px'}">
+                        <a ng-click="api.models.capture.customerType = 'business'"><input id="business" type="radio" value="business" ng-model="api.models.capture.customerType" ng-click=""/> Business</a>
                     </label>
-                    <label for="consumer">
-                        <button type="button" ng-click="api.models.capture.customerType = 'consumer'">
-                            <input id="consumer" type="radio" value="consumer" ng-model="api.models.capture.customerType"/>Consumer</button>
+                    <label for="consumer" ng-style="{background:'rgba(255,255,255,.4)', padding:'4px', borderRadius:'4px', flex:'1 0 30%', margin:'0 2px'}">
+                        <a ng-click="api.models.capture.customerType = 'consumer'">
+                            <input id="consumer" type="radio" value="consumer" ng-model="api.models.capture.customerType"/> Consumer</a>
                     </label>
-                    <label for="contract"  ng-style="{flex:'0 1 50%'}">
-                        <button ng-click="api.models.capture.contract = !api.models.capture.contract" type="button"><input ng-model="api.models.capture.contract" id="contract" type="checkbox" value="contract"/> Currently under contract</button>
+                    <label for="contract" ng-style="{background:'rgba(255,255,255,.4)', padding:'4px', borderRadius:'4px', flex:'1 0 30%', margin:'0 2px'}">
+                        <a ng-click="api.models.capture.contract = !api.models.capture.contract" type="button"><input ng-model="api.models.capture.contract" id="contract" type="checkbox" value="contract"/> Contract?</a>
                     </label>
-                </div>
             </div>
             <label class="slide-left animate-show" ng-style="{flex:'1 1 20%'}" for="spending" ng-show="api.models.capture.customerType === 'business'">
                 <br/>
