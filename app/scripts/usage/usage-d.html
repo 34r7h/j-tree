@@ -12,13 +12,15 @@
                 <i ng-style="{flex: '0 1 20px', float:'left'}">&frac12;GB</i>
                 <i ng-style="{flex: '0 1 20px', float:'right'}">5GB+</i>
                 <input
+                        ng-init="rangePercent.data=50; rangeMin.data=500; rangeMax.data=5000"
                         type="range"
                         id="dataRange"
                         ng-model="api.models.usage.data"
                         min="500"
                         max="5000"
                         step=".1"
-                        ng-style="{}"/>
+                        ng-change="rangePercent.data = ( (api.models.usage.data  - rangeMin.data) / (rangeMax.data  - rangeMin.data)  )*100"
+                        ng-style="api.style.rangeTrack(rangePercent.data);">
             </div>
         </label>
         <label ng-style="{flex:'0 0 20%'}" for="calls">
@@ -33,7 +35,11 @@
                         min="50"
                         max="550"
                         step=".1"
-                        ng-style="{flex: '5 0 200px'}"/>
+
+                        ng-init="rangePercent.calls=50; rangeMin.calls=50; rangeMax.calls=550"
+                        ng-change="rangePercent.calls = ( (api.models.usage.calls  - rangeMin.calls) / (rangeMax.calls  - rangeMin.calls)  )*100"
+                        ng-style="api.style.rangeTrack(rangePercent.calls)"
+                        />
             </div>
         </label>
         <label ng-style="{flex:'0 0 20%'}" for="sms">
@@ -42,13 +48,15 @@
                 <i ng-style="{flex: '0 1 20px', float:'left'}">50</i>
                 <i ng-style="{flex: '0 1 20px', float:'right'}">2000+</i></div>
                 <input
+                        ng-init="rangePercent.sms=50; rangeMin.sms=50; rangeMax.sms=2000"
                         type="range"
                         id="sms"
                         ng-model="api.models.usage.sms"
                         min="50"
                         max="2000"
                         step="1"
-                        ng-style="{flex: '5 0 200px'}"/>
+                        ng-change="rangePercent.sms = ( (api.models.usage.sms  - rangeMin.sms) / (rangeMax.sms  - rangeMin.sms)  )*100"
+                        ng-style="api.style.rangeTrack(rangePercent.sms)">
         </label>
         <label ng-style="{flex:'0 0 20%', display:'flex', flexDirection:'column', justifyContent: 'space-around'}" for="happy">
             <h4>How do you feel about your current service?<p/></h4>
@@ -57,7 +65,13 @@
                 <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.happy=50">Content</i>
                 <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.happy=100">Happy</i>
             </div>
-            <input type="range" id="happy" ng-model="api.models.usage.happy"/>
+            <input
+                    type="range" id="happy"
+                    ng-model="api.models.usage.happy"
+                    ng-init="rangePercent.happy=50; rangeMin.happy=0; rangeMax.happy=100"
+                    ng-style="api.style.rangeTrack(rangePercent.happy)"
+                    ng-change="rangePercent.happy = ( (api.models.usage.happy  - rangeMin.happy) / (rangeMax.happy  - rangeMin.happy)  )*100"
+                    />
         </label>
     </div>
     <button

@@ -23,11 +23,18 @@
                 </select>
             </label>
             <div ng-style="{flex:'1 1 20%', display:'flex', justifyContent:'space-between', margin:'4px 0'}" ng-style="api.style.margin.bottom">
-                <div ng-style="{flex:'1 0 50%'}"><label for="business"><input id="business" type="radio" value="business" ng-model="api.models.capture.customerType" ng-click=""/>Business</label>
-                <label for="consumer"><input id="consumer" type="radio" value="consumer" ng-model="api.models.capture.customerType"/>Consumer</label></div>
-                <label for="contract"  ng-style="{flex:'0 1 50%'}">
-                    <button ng-click="api.models.capture.contract = !api.models.capture.contract" type="button"><input ng-model="api.models.capture.contract" id="contract" type="checkbox" value="contract"/> Currently under contract</button>
-                </label>
+                <div ng-style="{flex:'1 0 50%'}">
+                    <label for="business">
+                        <button type="button" ng-click="api.models.capture.customerType = 'business'"><input id="business" type="radio" value="business" ng-model="api.models.capture.customerType" ng-click=""/>Business</button>
+                    </label>
+                    <label for="consumer">
+                        <button type="button" ng-click="api.models.capture.customerType = 'consumer'">
+                            <input id="consumer" type="radio" value="consumer" ng-model="api.models.capture.customerType"/>Consumer</button>
+                    </label>
+                    <label for="contract"  ng-style="{flex:'0 1 50%'}">
+                        <button ng-click="api.models.capture.contract = !api.models.capture.contract" type="button"><input ng-model="api.models.capture.contract" id="contract" type="checkbox" value="contract"/> Currently under contract</button>
+                    </label>
+                </div>
             </div>
             <label class="slide-left animate-show" ng-style="{flex:'1 1 20%'}" for="spending" ng-show="api.models.capture.customerType === 'business'">
                 <br/>
@@ -44,6 +51,9 @@
                         min="1000"
                         max="4000"
                         step=".1"
+                        ng-init="rangePercent.spending=50; rangeMin.spending=1000; rangeMax.spending=4000"
+                        ng-style="api.style.rangeTrack(rangePercent.spending)"
+                        ng-change="rangePercent.spending = ( (api.models.capture.spending  - rangeMin.spending) / (rangeMax.spending  - rangeMin.spending)  )*100"
                         />
             </label>
             <div ng-style="{flex:'1 1 20%', display: 'flex', flexDirection:'column', justifyContent: 'space-around'}">
