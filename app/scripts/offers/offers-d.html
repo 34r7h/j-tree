@@ -1,7 +1,7 @@
 <div
         class="offers"
         ng-init="$parent.$root.ui.back = 'capture';"
-        ng-style="{height:'587px', display: 'flex', flexDirection:'column', justifyContent: 'space-between'}"
+        ng-style="{height:'587px', display: 'flex', flexDirection:'column', justifyContent: 'space-around'}"
         >
     <div
             ng-repeat="plan in data.data.dataArr.$getRecord('plans') | limitTo:3"
@@ -14,9 +14,9 @@
                 $parent.api.models.usage.calls <= (plan.calls.max +50) &&
                 $parent.api.models.usage.calls >= (plan.calls.min -50)
                 ">
-        <h4 ng-style="{flex: '0 1 33%', borderBottom:'2px solid rgba(0,0,0,.6)'}" ><b>{{plan.provider | uppercase}} |</b> {{plan.name}} - ${{plan.price}}</h4>
-        <div ng-style="{display:'flex', justifyContent:'space-between', flex: '0 0 33%'}">
-            <div ng-style="{width:'33%', display:'flex'}">
+        <h4 ng-style="{flex: '0 1 33%', borderBottom:'2px solid rgba(0,0,0,.6)', display:'flex', justifyContent:'space-between'}" ><i>{{plan.provider | uppercase}} |</i> <b>{{plan.name | uppercase}} - ${{plan.price}}</b></h4>
+        <div ng-style="{display:'flex', justifyContent:'space-between', flex: '1 1 33%'}">
+            <div ng-style="{width:'33%', display:'flex', padding:'4px'}">
                 <div ng-style="{alignSelf:'center', textAlign:'center', width:'100%'}">
                     <div ng-style="{fontSize:'1em', textAlign:'center'}">
                         <b>{{plan.data}}</b>
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div ng-style="{width:'33%', display:'flex'}">
+            <div ng-style="{width:'33%', display:'flex', padding:'4px'}">
                 <div ng-style="{alignSelf:'center', textAlign:'center', width:'100%'}">
                     <div ng-style="{fontSize:'1em', textAlign:'center'}">
                         <b>{{plan.calls.min}}-{{plan.calls.max}}</b>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div ng-style="{width:'33%', display:'flex'}">
+            <div ng-style="{width:'33%', display:'flex', padding:'4px'}">
                 <div ng-style="{alignSelf:'center', textAlign:'center', width:'100%'}">
                     <div ng-style="{fontSize:'1em', textAlign:'center'}"><b>{{plan.sms}}</b></div>
                     <div ng-style="{textAlign:'center'}">
@@ -50,7 +50,7 @@
                 ng-href="{{plan.url}}"
                 ng-click="$root.ui.slide = 'slide-right';"
                 ng-style="{
-                flex: '0 0 33%',
+                flex: '1 0 33%',
                 width:'100%',
                 background:'rgba(233, 34, 36, 1)',
                 borderRadius:'4px',

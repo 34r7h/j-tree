@@ -50,8 +50,8 @@
                         step="1"
                         ng-style="{flex: '5 0 200px'}"/>
         </label>
-        <label ng-style="{flex:'0 0 20%'}" for="happy">
-            <h4>How do you feel about your current provider's service?</h4>
+        <label ng-style="{flex:'0 0 20%', display:'flex', flexDirection:'column', justifyContent: 'space-around'}" for="happy">
+            <h4>How do you feel about your current service?<p/></h4>
             <div ng-style="{width:'100%', display:'flex'}">
                 <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.happy=0">Unhappy</i>
                 <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.happy=50">Content</i>

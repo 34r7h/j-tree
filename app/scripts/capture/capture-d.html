@@ -25,9 +25,9 @@
                 <label for="business"><input id="business" type="radio" value="business" ng-model="api.models.capture.customerType" ng-click=""/>Business</label>
                 <label for="consumer"><input id="consumer" type="radio" value="consumer" ng-model="api.models.capture.customerType"/>Consumer</label>
             </div>
-            <label ng-style="{flex:'1 1 20%'}" for="spending" ng-if="api.models.capture.customerType === 'business'">
+            <label class="slide-left animate-show" ng-style="{flex:'1 1 20%'}" for="spending" ng-show="api.models.capture.customerType === 'business'">
                 <br/>
-                <h4>Monthly Spending {{'$ '+api.models.capture.spending}}</h4>
+                <h4>Monthly Spending {{api.models.capture.spending | currency:undefined:-2}}<p/></h4>
                 <div ng-style="api.style.flex.parent">
                     <i ng-style="{flex: '1 0 auto'}" ng-click="api.models.capture.spending=1000">Less than $1K</i>
                     <i ng-style="{flex: '1 0 auto', textAlign:'center'}" ng-click="api.models.capture.spending=2500">$1K - $4K</i>
@@ -39,14 +39,14 @@
                         ng-model="api.models.capture.spending"
                         min="1000"
                         max="4000"
-                        step="100"
+                        step=".1"
                         />
             </label>
             <div ng-style="{flex:'1 1 20%', display: 'flex', flexDirection:'column', justifyContent: 'space-around'}">
                 <label for="contract" ng-style="{margin:'1em'}">
                     <input ng-model="api.models.capture.contract" id="contract" type="checkbox" value="contract" ng-click="api.models.capture.contract ? null : null"/> Currently under contract
                 </label>
-                <div ng-if="api.models.capture.contract === true">
+                <div ng-show="api.models.capture.contract === true" class="slide-left animate-show">
                     <p><b>When is your contract up?</b></p>
                     <div for="month" ng-init="months = [
                         'January',
