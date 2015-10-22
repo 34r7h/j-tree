@@ -34,6 +34,7 @@ input[type=text], input[type=email], input[type=tel], input[type=number], input[
   margin: .25em 0;
   border: 0;
   padding: 4px;
+  border-radius: 4px;
 }
 
 ::-webkit-input-placeholder {
@@ -70,7 +71,9 @@ h4, h5 {
 button {
   color:rgba(0, 0, 0, .5);
   background: rgba(255,255,255,.4);
+  border:0;
   font-weight: bold;
+  border-radius: 4px;
 }
 button:disabled {
   color:rgba(0,0,0,.02);
