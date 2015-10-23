@@ -21,6 +21,21 @@ angular.module('jtree')
                     // the element you wish to scroll to.
                     $location.hash(id);
                     $anchorScroll();
+            },
+            filterPlans: function(criteria, array){
+                console.log('filtering plans');
+                var filteredPlans = [];
+                angular.forEach(array, function(value, key){
+                    if(criteria.sms <= value.sms +100 &&
+                      criteria.sms >= (value.sms -100) &&
+                      criteria.data <= (value.data +500) &&
+                      criteria.data >= (value.data -500) &&
+                      criteria.calls <= (value.calls.max +50) &&
+                      criteria.calls >= (value.calls.min -50)){
+                        filteredPlans.push(value);
+                    }
+                });
+                return filteredPlans;
             }
         };
         service.models = {
