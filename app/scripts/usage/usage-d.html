@@ -88,5 +88,5 @@
 
 
 <div ng-if="!$root.admin" ng-style="{position:'absolute', left:'354px', top:'54px', width:'354px'}">
-    <h1 style="color: black">Tell us about your usage. Data, calls, and messages please.</h1>
+    <h1><div ng-repeat="text in data.data.dataObj.texts" ng-show="text.type === 'usage'"  style="color: black">{{text.text}}</div></h1>
 </div>

@@ -107,5 +107,5 @@
 </form>
 
 <div ng-if="!$root.admin" ng-style="{position:'absolute', left:'354px', top:'54px', width:'354px'}">
-    <h1 style="color: black">Please enter your details and we'll match you with some great plans.</h1>
+    <h1><div ng-repeat="text in data.data.dataObj.texts" ng-show="text.type === 'capture'"  style="color: black">{{text.text}}</div></h1>
 </div>
