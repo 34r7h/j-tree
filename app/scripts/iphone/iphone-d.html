@@ -4,7 +4,7 @@
             class="iphone"
             id="iphone"
             ng-style="{
-            width:'322px',
+            width:'',
             height:'650px',
             float:'left',
             background:'rgba(76, 76, 77, 0)',
@@ -43,8 +43,8 @@
         </div>
     </div>
     <div ng-style="{flex:'1 1 auto'}">
-        <div ng-show="!$root.debug" ng-click="$root.debug =! $root.debug">+ Admin</div>
-        <div ng-show="$root.debug" ng-click="$root.debug =! $root.debug">- Admin</div>
+        <div style="color: black" ng-show="!$root.debug" ng-click="$root.debug =! $root.debug">+ Admin</div>
+        <div style="color: black"  ng-show="$root.debug" ng-click="$root.debug =! $root.debug">- Admin</div>
         <span ng-style="{margin:'1em', float:'left'}" ng-if="$root.debug">
             <admin></admin>
         </span>
