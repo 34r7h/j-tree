@@ -49,7 +49,7 @@
             <label for="newProvider">
                 <input type="text" ng-model="provider.name" id="newProvider"/>
             </label>
-            <button type="submit">Add Provider</button>
+            <button type="submit"><h2>Add Provider</h2></button>
         </form>
 
         <h3 ng-show="!$root.ui.admin.editProviders"
@@ -115,7 +115,7 @@
             <label for="url">Link
                 <input id="url" type="text" ng-model="plan.url"/>
             </label>
-            <button type="submit">Add Plan</button>
+            <button type="submit"><h2>Add Plan</h2></button>
         </form>
 
         <h3 ng-show="!$root.ui.admin.editPlan" ng-click="$root.ui.admin.editPlan = !$root.ui.admin.editPlan">+ Edit
@@ -170,7 +170,7 @@
                     <label for="plan{{key}}-url">Link
                         <input id="plan{{key}}-url" type="text" ng-model="plan.url"/>
                     </label>
-                    <button type="submit">Save Plan</button>
+                    <button type="submit"><h2>Save Plan</h2></button>
                 </form>
                 <a ng-click="removePlan = !removePlan" ng-show="!removePlan">Remove</a>
                 <button ng-show="removePlan" ng-click="data.methods.remove('plans', key)">Remove</button>

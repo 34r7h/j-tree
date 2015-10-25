@@ -261,7 +261,9 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 }
-
+.admin {
+  background: rgba(0,0,0,.2);
+}
 .admin * {
   color:black!important;
 }
