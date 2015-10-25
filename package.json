@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "angular-animate": "^1.4.7",
-    "cordova-android": "^3.7.1"
+    "cordova-android": "^3.7.1",
+    "express": "^4.13.3"
   }
 }
