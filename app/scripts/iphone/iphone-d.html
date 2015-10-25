@@ -43,8 +43,8 @@
         </div>
     </div>
     <div ng-style="{flex:'1 1 auto'}">
-        <div style="color: black" ng-show="!$root.admin" ng-click="$root.admin =! $root.admin">+ Admin</div>
-        <div style="color: black"  ng-show="$root.admin" ng-click="$root.admin =! $root.admin">- Admin</div>
+        <div style="color: black; position:absolute; left:700px;" ng-show="!$root.admin" ng-click="$root.admin =! $root.admin">+ Admin</div>
+        <div style="color: black; position:absolute; left:700px;"  ng-show="$root.admin" ng-click="$root.admin =! $root.admin">- Admin</div>
         <span ng-style="{margin:'1em', float:'left'}" ng-if="$root.admin">
             <admin></admin>
         </span>
