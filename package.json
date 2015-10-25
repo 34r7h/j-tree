@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "repository": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "",
   "license": "none",
@@ -55,5 +56,8 @@
     "angular-animate": "^1.4.7",
     "cordova-android": "^3.7.1",
     "express": "^4.13.3"
+  },
+  "engines": {
+    "node": "0.12.7"
   }
 }
