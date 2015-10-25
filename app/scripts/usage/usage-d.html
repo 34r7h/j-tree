@@ -3,8 +3,8 @@
         class="usage animate-show"
         ng-init="$root.ui.back = null; $root.ui.show = 'usage';"
         ng-submit="$root.ui.slide = 'slide-right'; $root.ui.show = 'capture';"
-        ng-style="{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height:'618px'}">
-    <div ng-style="{textAlign:'center', flex: '0 0 480px', display:'flex', flexDirection:'column', justifyContent:'space-around'}">
+        ng-style="{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height:'496px', width:'266px'}">
+    <div ng-style="{textAlign:'center', flex: '0 0 436px', display:'flex', flexDirection:'column', justifyContent:'space-around'}">
         <label ng-style="{flex:'0 0 20%'}" for="dataRange">
             <h2>Data: <b>{{api.models.usage.data | number : -3}}<span ng-show="api.models.usage.data">MB</span></b></h2>
 
@@ -12,7 +12,7 @@
                 <i ng-style="{flex: '0 1 20px', float:'left'}">&frac12;GB</i>
                 <i ng-style="{flex: '0 1 20px', float:'right'}">5GB+</i>
                 <input
-                        ng-init="rangePercent.data=50; rangeMin.data=500; rangeMax.data=5000"
+                        ng-init="rangePercent.data=(( (api.models.usage.data  - rangeMin.data) / (rangeMax.data  - rangeMin.data)  )*100 || 50); rangeMin.data=500; rangeMax.data=5000"
                         type="range"
                         id="dataRange"
                         ng-model="api.models.usage.data"
@@ -36,7 +36,7 @@
                         max="550"
                         step=".1"
 
-                        ng-init="rangePercent.calls=50; rangeMin.calls=50; rangeMax.calls=550"
+                        ng-init="rangePercent.calls=(( (api.models.usage.calls  - rangeMin.calls) / (rangeMax.calls  - rangeMin.calls)  )*100 || 50); rangeMin.calls=50; rangeMax.calls=550"
                         ng-change="rangePercent.calls = ( (api.models.usage.calls  - rangeMin.calls) / (rangeMax.calls  - rangeMin.calls)  )*100"
                         ng-style="api.style.rangeTrack(rangePercent.calls)"
                         />
@@ -48,7 +48,7 @@
                 <i ng-style="{flex: '0 1 20px', float:'left'}">50</i>
                 <i ng-style="{flex: '0 1 20px', float:'right'}">2000+</i></div>
                 <input
-                        ng-init="rangePercent.sms=50; rangeMin.sms=50; rangeMax.sms=2000"
+                        ng-init="rangePercent.sms=(( (api.models.usage.sms  - rangeMin.sms) / (rangeMax.sms  - rangeMin.sms)  )*100 || 50); rangeMin.sms=50; rangeMax.sms=2000"
                         type="range"
                         id="sms"
                         ng-model="api.models.usage.sms"
@@ -59,15 +59,15 @@
                         ng-style="api.style.rangeTrack(rangePercent.sms)">
         </label>
         <label ng-style="{flex:'0 0 20%', display:'flex', flexDirection:'column', justifyContent: 'space-around'}" for="happy">
-            <h4>How do you feel about your current service?<p/></h4>
-            <div ng-style="{width:'100%', display:'flex'}">
+            <h4>How do you feel about your current service?</h4>
+            <p ng-style="{width:'100%', display:'flex'}">
                 <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.happy=0">Unhappy</i>
                 <i ng-style="{flex: '1 1 auto', textAlign:'center'}" ng-click="api.models.capture.happy=100">Happy</i>
-            </div>
+            </p>
             <input
                     type="range" id="happy"
                     ng-model="api.models.usage.happy"
-                    ng-init="rangePercent.happy=50; rangeMin.happy=0; rangeMax.happy=100"
+                    ng-init="rangePercent.happy=(( (api.models.usage.happy  - rangeMin.happy) / (rangeMax.happy  - rangeMin.happy)  )*100 || 50); rangeMin.happy=0; rangeMax.happy=100"
                     ng-style="api.style.rangeTrack(rangePercent.happy)"
                     ng-change="rangePercent.happy = ( (api.models.usage.happy  - rangeMin.happy) / (rangeMax.happy  - rangeMin.happy)  )*100"
                     />
