@@ -9,5 +9,3 @@ app/styles/**/*.css.map
 bower_components
 app/bower_components
 *.log
-!express
-!http
