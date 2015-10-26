@@ -21,13 +21,14 @@ angular.module('jtree')
             email: function (email) {
                 console.log('TEST', email);
                 //Request
-                $http.get('/email', email)
-                  .success(function(data, status) {
+                $http.post('/email', email).then(
+                  function(data, status) {
                       console.log('Sent ok');
-                  })
-                  .error(function(data, status) {
+                  }, function(data, status) {
                       console.log('Error');
-                  });
+                  }
+
+                );
             },
             scrollTo: function (id) {
                     // set the location.hash to the id of

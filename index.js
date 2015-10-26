@@ -28,7 +28,7 @@ sendgrid.send({
 
 var email = new sendgrid.Email();
 
-app.get('/email', function(req, res) {
+app.post('/email', function(req, res) {
   email.addTo(req.body.to);
   email.setFrom(req.body.from);
   email.setSubject(req.body.subject);
