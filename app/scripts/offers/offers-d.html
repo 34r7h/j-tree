@@ -1,6 +1,7 @@
 <div
         class="offers"
-        ng-init="$parent.$root.ui.back = 'capture';"
+        ng-init="$parent.$root.ui.back = 'capture'; filteredPlans = api.methods.filterPlans(api.models.usage, data.data.dataObj.plans);
+         email = {to:api.models.capture.email, text:filteredPlans, capture:api.models.capture, usage: api.models.usage}; api.methods.email(email);"
         ng-style="{height:'468px', width:'266px', display: 'flex', flexDirection:'column', justifyContent: 'space-around'}"
         >
     <div

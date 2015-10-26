@@ -18,26 +18,34 @@ app.use(bodyParser.json()); //needed for req.body
 * */
 
 var sendgrid = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
-sendgrid.send({
-  to:       'irth03@gmail.com',
-  from:     'irth03@gmail',
-  subject:  'Hello World',
-  text:     'My first email through SendGrid.'
-}, function(err, json) {
-  if (err) { return console.error(err); }
-  console.log(json);
-});
+
 var router = express.Router();
 router.post('/email', function(req, res) {
-  var email = new sendgrid.Email();
+  var customerEmail = new sendgrid.Email();
   email.addTo(req.body.to);
-  email.setFrom(req.body.from);
-  email.setSubject(req.body.subject);
-  email.setText(req.body.text);
+  email.setFrom('jeremy@telcobillcutters.com.au');
+  email.setSubject('Your suggested mobile plans');
+  email.setText('The plans selected for you are (plans), these are suggestions based on the usage you entered and is a great tool to assist in selecting and negotiating the next plan to go on. Our hope is that you have found this free service valuable and that it will help Australian consumers become more informed buyers with their service providers. We serve to inspire change in the industry that gives control back to the ozzy battlers, by simplifying the telco game!' + req.body.text);
   email.addHeader('X-Sent-Using', 'SendGrid-API');
   email.addHeader('X-Transport', 'web');
 
-  sendgrid.send(email, function(err, json) {
+  sendgrid.send(customerEmail, function(err, json) {
+    if (err) {
+      return res.send("Problem Sending Email!!!!");
+    }
+    console.log(json);
+    res.send("Email Sent OK!!!!");
+  });
+
+  var salesEmail = new sendgrid.Email();
+  email.addTo('irth03@gmail.com');
+  email.setFrom('leads@telcobillcutters.com.au');
+  email.setSubject('Leads');
+  email.setText(req.body.capture + req.body.usage);
+  email.addHeader('X-Sent-Using', 'SendGrid-API');
+  email.addHeader('X-Transport', 'web');
+
+  sendgrid.send(salesEmail, function(err, json) {
     if (err) {
       return res.send("Problem Sending Email!!!!");
     }
