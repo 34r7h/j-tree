@@ -9,6 +9,15 @@ app.use(express.static(__dirname + '/www'));
 // app.set('views', __dirname + '/views');
 // app.set('view engine', 'ejs');
 
+/*
+*
+* Email
+*
+* */
+
+var sendgrid  = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
+console.log(sendgrid);
+
 app.get('/', function(request, response) {
   response.render('pages/index');
 });

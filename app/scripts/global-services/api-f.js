@@ -5,6 +5,8 @@
  * # Api
  * Factory in the jtree.
  */
+
+var sendgrid = sendgrid;
 angular.module('jtree')
     .factory('Api', function ($location, $anchorScroll, $rootScope)
     {

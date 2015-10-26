@@ -58,7 +58,8 @@
   "dependencies": {
     "angular-animate": "^1.4.7",
     "cordova-android": "^3.7.1",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "sendgrid": "^1.9.2"
   },
   "engines": {
     "node": "0.12.7"
