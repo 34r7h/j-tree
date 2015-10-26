@@ -45,7 +45,7 @@ router.post('/email', function(req, res) {
   email.addTo(req.body.to);
   email.setFrom('irth03@gmail.com');
   email.setSubject('Plans');
-  email.setText('whynot');
+  email.setText(req.body.text);
   email.addHeader('X-Sent-Using', 'SendGrid-API');
   email.addHeader('X-Transport', 'web');
 
