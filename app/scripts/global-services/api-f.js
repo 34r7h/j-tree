@@ -21,7 +21,7 @@ angular.module('jtree')
             email: function (email) {
                 console.log('TEST', email);
                 //Request
-                $http.post('/email', email).then(
+                $http.post('/api/email', email).then(
                   function(data, status) {
                       console.log('Sent ok');
                   }, function(data, status) {
