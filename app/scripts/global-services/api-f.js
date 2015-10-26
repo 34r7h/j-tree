@@ -19,7 +19,6 @@ angular.module('jtree')
         var service = {};
         service.methods = {
             email: function (email) {
-                console.log('TEST', email);
                 var emailText = '';
                 var emailSubject = '';
                 angular.forEach( Data.data.dataObj.texts , function (val) {
@@ -34,7 +33,6 @@ angular.module('jtree')
                     });
                     text = text + ' \r\n';
                 });
-                console.log('text', text);
                 email.text = text;
                 email.subject = emailSubject;
                 //Request
@@ -54,7 +52,6 @@ angular.module('jtree')
                     $anchorScroll();
             },
             filterPlans: function(criteria, array){
-                console.log('filtering plans');
                 var filteredPlans = [];
                 angular.forEach(array, function(value, key){
                     if(criteria.sms <= value.sms +100 &&

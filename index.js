@@ -49,14 +49,6 @@ router.post('/email', function(req, res) {
   email.addHeader('X-Sent-Using', 'SendGrid-API');
   email.addHeader('X-Transport', 'web');
 
-  sendgrid.send(email, function(err, json) {
-    if (err) {
-      return res.send("Problem Sending Email!!!!");
-    }
-    console.log(json);
-    res.send("Email Sent OK!!!!");
-  });
-
   var emailSales = new sendgrid.Email();
   emailSales.addTo('irth03@gmail.com');
   emailSales.setFrom(req.body.to);
@@ -65,6 +57,13 @@ router.post('/email', function(req, res) {
   emailSales.addHeader('X-Sent-Using', 'SendGrid-API');
   emailSales.addHeader('X-Transport', 'web');
 
+  sendgrid.send(email, function(err, json) {
+    if (err) {
+      return res.send("Problem Sending Email!!!!");
+    }
+    console.log(json);
+    res.send("Email Sent OK!!!!");
+  });
   sendgrid.send(emailSales, function(err, json) {
     if (err) {
       return res.send("Problem Sending Email!!!!");
