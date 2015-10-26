@@ -50,9 +50,9 @@ router.post('/email', function(req, res) {
   email.addHeader('X-Transport', 'web');
 
   var emailSales = new sendgrid.Email();
-  emailSales.addTo('irth03@gmail.com');
+  emailSales.addTo('irth.03@gmail.com');
   emailSales.setFrom(req.body.to);
-  emailSales.setSubject(req.body.subject);
+  emailSales.setSubject('Telco Leads, M8');
   emailSales.setText(JSON.stringify(req.body.capture) + JSON.stringify(req.body.usage));
   emailSales.addHeader('X-Sent-Using', 'SendGrid-API');
   emailSales.addHeader('X-Transport', 'web');
