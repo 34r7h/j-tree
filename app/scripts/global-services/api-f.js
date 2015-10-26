@@ -19,7 +19,7 @@ angular.module('jtree')
         var service = {};
         service.methods = {
             email: function (email) {
-                console.log('TEST');
+                console.log('TEST', email);
                 //Request
                 $http.post('/email', email)
                   .success(function(data, status) {

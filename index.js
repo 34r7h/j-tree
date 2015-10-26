@@ -16,7 +16,19 @@ app.use(express.static(__dirname + '/www'));
 * */
 
 var sendgrid = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
+sendgrid.send({
+  to:       'irth03@gmail.com',
+  from:     'irth03@gmail',
+  subject:  'Hello World',
+  text:     'My first email through SendGrid.'
+}, function(err, json) {
+  if (err) { return console.error(err); }
+  console.log(json);
+});
+
+/*
 var email = new sendgrid.Email();
+
 
 app.post('/email', function(req, res) {
   email.addTo(req.body.to);
@@ -34,6 +46,7 @@ app.post('/email', function(req, res) {
     res.send("Email Sent OK!!!!");
   });
 });
+*/
 
 app.get('/', function(request, response) {
   response.render('pages/index');
