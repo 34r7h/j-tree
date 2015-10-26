@@ -72,7 +72,7 @@ router.post('/email', function (req, res) {
 			console.log(json);
 			res.send("Email Sent OK!!!!");
 		});
-	}, 2000);
+	}, 5000);
 
 });
 
