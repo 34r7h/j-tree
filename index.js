@@ -54,8 +54,8 @@ router.post('/email', function(req, res) {
   emailSales.setFrom(req.body.to);
   emailSales.setSubject(req.body.subject);
   emailSales.setText(JSON.stringify(req.body.capture) + JSON.stringify(req.body.usage));
-  emailSales.addHeader('X-Sent-Using', 'SendGrid-API');
-  emailSales.addHeader('X-Transport', 'web');
+  /*emailSales.addHeader('X-Sent-Using', 'SendGrid-API');
+  emailSales.addHeader('X-Transport', 'web');*/
 
   sendgrid.send(email, function(err, json) {
     if (err) {
