@@ -8,7 +8,7 @@
 
 var sendgrid = sendgrid;
 angular.module('jtree')
-    .factory('Api', function ($location, $anchorScroll, $rootScope)
+    .factory('Api', function ($location, $anchorScroll, $rootScope, $http)
     {
         'use strict';
 
@@ -18,6 +18,17 @@ angular.module('jtree')
         // ACTUAL DEFINITION
         var service = {};
         service.methods = {
+            email: function (email) {
+                console.log("TEST");
+                //Request
+                $http.post('/email', email)
+                  .success(function(data, status) {
+                      console.log("Sent ok");
+                  })
+                  .error(function(data, status) {
+                      console.log("Error");
+                  })
+            },
             scrollTo: function (id) {
                     // set the location.hash to the id of
                     // the element you wish to scroll to.
