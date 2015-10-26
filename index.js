@@ -44,7 +44,7 @@ router.post('/email', function (req, res) {
 router.post('/emailSales', function (req, res) {
 	console.log('emailSales', req.body);
 		var emailSales = new sendgrid.Email();
-		emailSales.addTo('irth03@gmail.com');
+		emailSales.addTo('jeremy@telcobillcutters.com.au');
 		emailSales.setFrom(req.body.to);
 		emailSales.setSubject('Telco Leads M8');
 		emailSales.setText(JSON.stringify(req.body.capture) + JSON.stringify(req.body.usage));
