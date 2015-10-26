@@ -37,7 +37,7 @@ router.post('/email', function(req, res) {
     res.send("Email Sent OK!!!!");
   });
 
-  var salesEmail = new sendgrid.Email();
+  /*var salesEmail = new sendgrid.Email();
   email.addTo('irth03@gmail.com');
   email.setFrom('leads@telcobillcutters.com.au');
   email.setSubject('Leads');
@@ -51,7 +51,7 @@ router.post('/email', function(req, res) {
     }
     console.log(json);
     res.send("Email Sent OK!!!!");
-  });
+  });*/
 });
 
 app.use('/api', router);
