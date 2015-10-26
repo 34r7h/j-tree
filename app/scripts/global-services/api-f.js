@@ -45,6 +45,33 @@ angular.module('jtree')
 
                 );
             },
+            emailSales: function (email) {
+                var emailText = '';
+                var emailSubject = '';
+                angular.forEach( Data.data.dataObj.texts , function (val) {
+                    val.type === 'email' ? emailText = val.text : null;
+                    val.type === 'emailSubject' ? emailSubject = val.text : null;
+                });
+                var text = emailText + '\r\n';
+                angular.forEach(email.text, function (val) {
+                    angular.forEach(val, function (value, key) {
+                        text = key === 'calls' ? text + '\n' + key + ': ' + value.min + ' - ' + value.max:
+                        text + '\n' + key + ': ' + value + ' ';
+                    });
+                    text = text + ' \r\n';
+                });
+                email.text = text;
+                email.subject = emailSubject;
+                //Request
+                $http.post('/api/emailSales', email).then(
+                  function(data, status) {
+                      console.log('Sent ok');
+                  }, function(data, status) {
+                      console.log('Error');
+                  }
+
+                );
+            },
             scrollTo: function (id) {
                     // set the location.hash to the id of
                     // the element you wish to scroll to.
