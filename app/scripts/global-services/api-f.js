@@ -8,7 +8,7 @@
 
 var sendgrid = sendgrid;
 angular.module('jtree')
-    .factory('Api', function ($location, $anchorScroll, $rootScope, $http)
+    .factory('Api', function ($location, $anchorScroll, $rootScope, $http, Data)
     {
         'use strict';
 
@@ -20,7 +20,11 @@ angular.module('jtree')
         service.methods = {
             email: function (email) {
                 console.log('TEST', email);
-                var text = 'The plans selected for you are (plans), these are suggestions based on the usage you entered and is a great tool to assist in selecting and negotiating the next plan to go on.\r\nOur hope is that you have found this free service valuable and that it will help Australian consumers become more informed buyers with their service providers. We serve to inspire change in the industry that gives control back to the ozzy battlers, by simplifying the telco game!\r\n';
+                var emailText = '';
+                angular.forEach( Data.data.dataObj.texts , function (val) {
+                    val.type === 'email' ? emailText = val.text : null;
+                });
+                var text = emailText + '\r\n';
                 angular.forEach(email.text, function (val) {
                     angular.forEach(val, function (value, key) {
                         text = key === 'calls' ? text + '\n' + key + ': ' + value.min + ' - ' + value.max:
