@@ -47,7 +47,7 @@ router.post('/email', function(req, res) {
   email.setSubject(req.body.subject);
   email.setText(req.body.text);
   // email.addHeader('X-Sent-Using', 'SendGrid-API');
-  email.setHeader('X-Transport', 'web');
+  email.setHeaders({'X-Transport': 'web'});
 
   /*var emailSales = new sendgrid.Email();
   emailSales.addTo('jeremy@telcobillcutters.com.au');
