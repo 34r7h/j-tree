@@ -26,15 +26,8 @@ sendgrid.send({
   console.log(json);
 });
 var router = express.Router();
-router.get('/', function(req, res) {
-  res.json({ message: 'hooray! welcome to our api!' });
-});
-app.use('/api', router);
-
-
-var email = new sendgrid.Email();
-
-app.post('/email', function(req, res) {
+router.post('/email', function(req, res) {
+  var email = new sendgrid.Email();
   email.addTo(req.body.to);
   email.setFrom(req.body.from);
   email.setSubject(req.body.subject);
@@ -50,6 +43,8 @@ app.post('/email', function(req, res) {
     res.send("Email Sent OK!!!!");
   });
 });
+
+app.use('/api', router);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
