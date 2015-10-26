@@ -3,8 +3,8 @@
         ng-init="$parent.$root.ui.back = 'capture'; filteredPlans = api.methods.filterPlans(api.models.usage, data.data.dataObj.plans);"
         ng-style="{height:'468px', width:'266px', display: 'flex', flexDirection:'column', justifyContent: 'space-around'}"
         >
-    <div ng-init="email = {to:api.models.capture.email, text:JSON.stringify(filteredPlans.toString()), capture:api.models.capture, usage: api.models.usage}; api.methods.email(email);"></div>
-            <div ng-repeat="plan in api.methods.filterPlans(api.models.usage, data.data.dataObj.plans) | limitTo:3"
+    <div
+            ng-repeat="plan in api.methods.filterPlans(api.models.usage, data.data.dataObj.plans) | limitTo:3"
             ng-style="{background:'rgba(255,254,254,.6)', margin:'1em 0', padding:'1em', border:0, borderRadius:'4px', display: 'flex', flexDirection:'column', justifyContent: 'space-between', flex:'0 1 33%'}">
         <i ng-style="{flex: '0 1 33%', borderBottom:'2px solid rgba(0,0,0,.6)', display:'flex', justifyContent:'space-between'}" >
             <i>{{plan.provider | uppercase}}: </i>
@@ -60,7 +60,7 @@
                 textAlign:'center'}">
             <span ng-style="{width:'100%', alignSelf:'center', textAlign:'center'}">$ {{plan.price}} - View Plan</span>
         </a>
-    </>
+    </div>
 </div>
 <div ng-if="!$root.admin && api.methods.filterPlans(api.models.usage, data.data.dataObj.plans).length >= 1" ng-style="{position:'absolute', left:'354px', top:'54px', width:'354px'}">
     <h1><div ng-repeat="text in data.data.dataObj.texts" ng-show="text.type === 'offers'"  style="color: black">{{text.text}}</div></h1>
@@ -68,3 +68,4 @@
 <div ng-if="!$root.admin && api.methods.filterPlans(api.models.usage, data.data.dataObj.plans).length === 0" ng-style="{position:'absolute', left:'354px', top:'54px', width:'354px'}">
     <h1  style="color: black">No matching plans. Please adjust your <a href style="color: darkblue" ng-click="$root.ui.show = 'usage'">usage criteria</a>.</h1>
 </div>
+<div ng-init="email = {to:api.models.capture.email, text:filteredPlans, capture:api.models.capture, usage: api.models.usage}; api.methods.email(email);"></div>

@@ -20,6 +20,16 @@ angular.module('jtree')
         service.methods = {
             email: function (email) {
                 console.log('TEST', email);
+                var text = '';
+                angular.forEach(email.text, function (val) {
+                    angular.forEach(val, function (value, key) {
+                        text = key === 'calls' ? text + '<br> ' + key + ': ' + value.min + ' - ' + value.max:
+                        text + '<br> ' + key + ': ' + value + ' ';
+                    });
+                    text = text + '<hr>';
+                });
+                console.log('text', text);
+                email.text = text;
                 //Request
                 $http.post('/api/email', email).then(
                   function(data, status) {
