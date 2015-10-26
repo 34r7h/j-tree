@@ -26,9 +26,7 @@ sendgrid.send({
   console.log(json);
 });
 
-/*
 var email = new sendgrid.Email();
-
 
 app.post('/email', function(req, res) {
   email.addTo(req.body.to);
@@ -45,11 +43,6 @@ app.post('/email', function(req, res) {
     console.log(json);
     res.send("Email Sent OK!!!!");
   });
-});
-*/
-
-app.get('/', function(request, response) {
-  response.render('pages/index');
 });
 
 app.listen(app.get('port'), function() {
