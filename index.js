@@ -26,7 +26,7 @@ sendgrid.send({
   console.log(json);
 });
 var router = express.Router();
-router.post('/email', function(req, res) {
+router.post('/', function(req, res) {
   var email = new sendgrid.Email();
   email.addTo(req.body.to);
   email.setFrom(req.body.from);
@@ -44,7 +44,7 @@ router.post('/email', function(req, res) {
   });
 });
 
-app.use('/api', router);
+app.use('/email', router);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
