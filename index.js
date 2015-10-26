@@ -40,11 +40,11 @@ router.post('/email', function(req, res) {
    });
   */
 
-
+  console.log('email', req);
   var email = new sendgrid.Email();
   email.addTo(req.body.to);
-  email.setFrom(req.body.from);
-  email.setSubject(req.body.subject);
+  email.setFrom('irth03@gmail.com');
+  email.setSubject('Plans');
   email.setText(req.body.text);
   email.addHeader('X-Sent-Using', 'SendGrid-API');
   email.addHeader('X-Transport', 'web');
