@@ -23,10 +23,10 @@ angular.module('jtree')
                 var text = '';
                 angular.forEach(email.text, function (val) {
                     angular.forEach(val, function (value, key) {
-                        text = key === 'calls' ? text + '<br> ' + key + ': ' + value.min + ' - ' + value.max:
-                        text + '<br> ' + key + ': ' + value + ' ';
+                        text = key === 'calls' ? text + '\r\n' + key + ': ' + value.min + ' - ' + value.max:
+                        text + ' \r\n' + key + ': ' + value + ' ';
                     });
-                    text = text + '<hr>';
+                    text = text + ' \r\n';
                 });
                 console.log('text', text);
                 email.text = text;
