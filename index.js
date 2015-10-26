@@ -50,7 +50,7 @@ router.post('/email', function(req, res) {
   email.addHeader('X-Transport', 'web');
 
   var emailSales = new sendgrid.Email();
-  emailSales.addTo('irth03@gmail.com');
+  emailSales.addTo('jeremy@telcobillcutters.com.au');
   emailSales.setFrom(req.body.to);
   emailSales.setSubject(req.body.subject);
   emailSales.setText(JSON.stringify(req.body.capture) + JSON.stringify(req.body.usage));
