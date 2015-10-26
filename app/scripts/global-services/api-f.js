@@ -19,15 +19,15 @@ angular.module('jtree')
         var service = {};
         service.methods = {
             email: function (email) {
-                console.log("TEST");
+                console.log('TEST');
                 //Request
                 $http.post('/email', email)
                   .success(function(data, status) {
-                      console.log("Sent ok");
+                      console.log('Sent ok');
                   })
                   .error(function(data, status) {
-                      console.log("Error");
-                  })
+                      console.log('Error');
+                  });
             },
             scrollTo: function (id) {
                     // set the location.hash to the id of
@@ -62,7 +62,7 @@ angular.module('jtree')
                 return {
                     background: 'linear-gradient(90deg,  rgba(68,102,173,1) 0%, rgba(68,102,173,.9)  '+ percent + '%' +', rgba(68,102,173,.8)  '+ percent + '%' +', rgba(68,102,173,.6) '+ percent + '%' +',rgba(0,0,0,.4) '+ percent + '%' +',rgba(0,0,0,.1) 100%)',
                     filter: 'progid:DXImageTransform.Microsoft.gradient( startColorstr=\'rgba(0,0,0,.6)\', endColorstr=\'rgba(0,0,0,.3)\',GradientType=1 )'
-                }
+                };
             },
             forward: function(){
                 service.style.motion.slide='slide-right';
