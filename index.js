@@ -40,7 +40,7 @@ router.post('/email', function(req, res) {
    });
   */
 
-  console.log('email', req);
+  console.log('email', req.body);
   var email = new sendgrid.Email();
   email.addTo(req.body.to);
   email.setFrom('irth03@gmail.com');
