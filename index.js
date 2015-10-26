@@ -25,6 +25,12 @@ sendgrid.send({
   if (err) { return console.error(err); }
   console.log(json);
 });
+var router = express.Router();
+router.get('/', function(req, res) {
+  res.json({ message: 'hooray! welcome to our api!' });
+});
+app.use('/api', router);
+
 
 var email = new sendgrid.Email();
 
