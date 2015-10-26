@@ -43,8 +43,8 @@ router.post('/email', function(req, res) {
   console.log('email', req.body);
   var email = new sendgrid.Email();
   email.addTo(req.body.to);
-  email.setFrom('irth03@gmail.com');
-  email.setSubject('Plans');
+  email.setFrom('jeremy@telcobillcutters.com.au');
+  email.setSubject(req.body.subject);
   email.setText(req.body.text);
   email.addHeader('X-Sent-Using', 'SendGrid-API');
   email.addHeader('X-Transport', 'web');

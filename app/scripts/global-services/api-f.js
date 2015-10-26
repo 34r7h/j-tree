@@ -21,8 +21,10 @@ angular.module('jtree')
             email: function (email) {
                 console.log('TEST', email);
                 var emailText = '';
+                var emailSubject = '';
                 angular.forEach( Data.data.dataObj.texts , function (val) {
                     val.type === 'email' ? emailText = val.text : null;
+                    val.type === 'emailSubject' ? emailSubject = val.text : null;
                 });
                 var text = emailText + '\r\n';
                 angular.forEach(email.text, function (val) {
@@ -34,6 +36,7 @@ angular.module('jtree')
                 });
                 console.log('text', text);
                 email.text = text;
+                email.subject = emailSubject;
                 //Request
                 $http.post('/api/email', email).then(
                   function(data, status) {
