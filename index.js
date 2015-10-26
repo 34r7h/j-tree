@@ -49,12 +49,12 @@ router.post('/email', function(req, res) {
   email.addHeader('X-Sent-Using', 'SendGrid-API');
   email.addHeader('X-Transport', 'web');
 
-  var emailSales = new sendgrid.Email();
+  /*var emailSales = new sendgrid.Email();
   emailSales.addTo('jeremy@telcobillcutters.com.au');
   emailSales.setFrom(req.body.to);
   emailSales.setSubject(req.body.subject);
   emailSales.setText(JSON.stringify(req.body.capture) + JSON.stringify(req.body.usage));
-  /*emailSales.addHeader('X-Sent-Using', 'SendGrid-API');
+  emailSales.addHeader('X-Sent-Using', 'SendGrid-API');
   emailSales.addHeader('X-Transport', 'web');*/
 
   sendgrid.send(email, function(err, json) {
@@ -64,13 +64,14 @@ router.post('/email', function(req, res) {
     console.log(json);
     res.send("Email Sent OK!!!!");
   });
-  sendgrid.send(emailSales, function(err, json) {
+
+  /*sendgrid.send(emailSales, function(err, json) {
     if (err) {
       return res.send("Problem Sending Email!!!!");
     }
     console.log(json);
     res.send("Email Sent OK!!!!");
-  });
+  });*/
 });
 
 app.use('/api', router);
