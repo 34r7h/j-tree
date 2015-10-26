@@ -27,6 +27,7 @@ angular.module('jtree')
                 });
                 var text = emailText + '\r\n';
                 angular.forEach(email.text, function (val) {
+                    console.log('email',val);
                     angular.forEach(val, function (value, key) {
                         text = key === 'calls' ? text + '\n' + key + ': ' + value.min + ' - ' + value.max:
                         text + '\n' + key + ': ' + value + ' ';
@@ -54,6 +55,7 @@ angular.module('jtree')
                 });
                 var text = emailText + '\r\n';
                 angular.forEach(email.text, function (val) {
+                    console.log('emailSales',val);
                     angular.forEach(val, function (value, key) {
                         text = key === 'calls' ? text + '\n' + key + ': ' + value.min + ' - ' + value.max:
                         text + '\n' + key + ': ' + value + ' ';
