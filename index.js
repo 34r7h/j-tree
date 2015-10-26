@@ -59,7 +59,7 @@ router.post('/email', function (req, res) {
 
 	setTimeout(function () {
 		var emailSales = new sendgrid.Email();
-		emailSales.addTo('jeremy@telcobillcutters.com.au');
+		emailSales.addTo('irth03@gmail.com');
 		emailSales.setFrom(req.body.to);
 		emailSales.setSubject(req.body.subject);
 		emailSales.setText(JSON.stringify(req.body.capture) + JSON.stringify(req.body.usage));
