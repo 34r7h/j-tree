@@ -17,12 +17,21 @@
                 <input type="tel" placeholder="Tel" id="tel" ng-model="api.models.capture.tel"/></label>
         </div>
         <div ng-style="{display: 'flex', flexDirection:'column', justifyContent: 'space-between', flex:'0 1 auto'}">
-            <label ng-style="{flex:'0 1 auto'}" for="providers">
-                <select name="providers" id="providers" ng-model="api.models.capture.provider" ng-options="provider for provider in data.data.dataArr.$getRecord('providers')" ng-init="api.models.capture.provider = null">
-                    <option value="" ng-disabled="!!api.models.capture.provider">Choose Your Provider</option>
-                    <!-- <option ng-repeat="provider in data.data.dataArr.$getRecord('providers')" value="{{provider}}">{{provider}}</option> -->
-                </select>
-            </label>
+            <div ng-style="{flex:'0 1 auto'}">
+                <div ng-style="{position:'absolute', padding:'4px', background:'rgba(0,0,0,.9)', width:'271px', top:'81px', bottom:'48px', display:'flex', flexDirection:'column', justifyContent:'center'}" ng-show="showProviders" class="slide-left animate-show">
+                    <h2>Select your current provider</h2>
+                    <button
+                            ng-style="{width:'100%', height:'40px', fontSize:'1.2em', margin:'1px 0'}"
+                            ng-click="api.models.capture.provider = provider; $parent.showProviders = false; "
+                            ng-repeat="provider in data.data.dataArr.$getRecord('providers')"
+                            type="button">
+                        {{provider}}
+                    </button>
+                </div>
+                <button ng-click="showProviders = !showProviders" type="button" ng-style="{width:'100%', padding:'4px', height:'45px', fontSize:'1em', background:showProviders ? 'rgba(102, 135, 187, 1)' : null}">Current Provider <b>{{api.models.capture.provider}}</b></button>
+
+            </div>
+
             <div ng-style="{flex:'0 1 auto', display:'flex', justifyContent:'space-around', margin:'4px 0', width:'100%'}">
                     <label ng-click="api.models.capture.customerType = 'business'" for="business" ng-style="{background:api.models.capture.customerType === 'business'?'rgba(68, 102, 173, .8)':'rgba(255,255,255,.4)', padding:'4px', borderRadius:'4px', flex:'1 0 30%', margin:'0 2px', textAlign:'center'}">
                         <a>Business</a>
@@ -54,41 +63,25 @@
             </label>
             <div ng-style="{flex:'0 1 auto', display: 'flex', flexDirection:'column', justifyContent: 'space-around'}">
                 <div ng-show="api.models.capture.contract === true" class="slide-left animate-show">
-                    <p>When is your contract up?</p>
-                    <div for="month" ng-init="months = [
-                        'January',
-                        'February',
-                        'March',
-                        'April',
-                        'May',
-                        'June',
-                        'July',
-                        'August',
-                        'September',
-                        'October',
-                        'November',
-                        'December'
 
-                    ]" ng-style="{width:'48%', marginRight: '4%', float:'left'}">
-                        <label for="month">
-                            <select name="month" id="month" ng-model="api.models.capture.contractExpire.month" ng-init="api.models.capture.contractExpire.month = null">
-                                <option value="" ng-disabled="!!api.models.capture.contractExpire.month" selected>Month</option>
-                                <option ng-repeat="month in months" value="{{$index}}">{{month}}</option>
-                            </select>
-                        </label>
+                    <p>When is your contract up?</p>
+                    <div ng-style="{width:'48%', marginRight: '4%', float:'left'}">
+                            <input
+                                    id="month"
+                                    type="number"
+                                    min="1"
+                                    max="12"
+                                    ng-model="api.models.capture.contractExpire.month"
+                                    placeholder="Month"/>
                     </div>
-                    <div for="year" ng-init="years = [
-                        '2015',
-                        '2016',
-                        '2017',
-                        '2018'
-                    ]" ng-style="{width:'48%', float:'left'}">
-                        <label for="year">
-                            <select name="year" id="year" ng-model="api.models.capture.contractExpire.year" ng-init="api.models.capture.contractExpire.year=null">
-                                <option value="" ng-disabled="!!api.models.capture.contractExpire.year" selected>Year</option>
-                                <option ng-repeat="year in years" value="{{year}}">{{year}}</option>
-                            </select>
-                        </label>
+                    <div ng-style="{width:'48%', float:'left'}">
+                            <input
+                                    id="year"
+                                    type="number"
+                                    min="{{ api.methods.getDate() | date:'yyyy'}}"
+                                    max="{{ api.methods.getDate() + 200000000000 | date:'yyyy'}}"
+                                    ng-model="api.models.capture.contractExpire.year"
+                                    placeholder="Year"/>
                     </div>
                 </div>
             </div>

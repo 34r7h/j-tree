@@ -18,6 +18,9 @@ angular.module('jtree')
         // ACTUAL DEFINITION
         var service = {};
         service.methods = {
+            getDate: function () {
+                return Date.now();
+            },
             email: function (email) {
                 var emailText = '';
                 var emailSubject = '';
