@@ -85,9 +85,7 @@ angular.module('jtree')
             filterPlans: function(criteria, array){
                 var filteredPlans = [];
                 angular.forEach(array, function(value, key){
-                    if(criteria.sms <= value.sms +100 &&
-                      criteria.sms >= (value.sms -100) &&
-                      criteria.data <= (value.data +500) &&
+                    if(criteria.data <= (value.data +500) &&
                       criteria.data >= (value.data -500) &&
                       criteria.calls <= (value.calls.max +50) &&
                       criteria.calls >= (value.calls.min -50)){

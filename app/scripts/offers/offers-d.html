@@ -65,7 +65,7 @@
 <div ng-if="!$root.admin && api.methods.filterPlans(api.models.usage, data.data.dataObj.plans).length >= 1" ng-style="{position:'absolute', left:'354px', top:'54px', width:'354px'}">
     <h1><div ng-repeat="text in data.data.dataObj.texts" ng-show="text.type === 'offers'"  style="color: black">{{text.text}}</div></h1>
 </div>
-<div ng-if="!$root.admin && api.methods.filterPlans(api.models.usage, data.data.dataObj.plans).length === 0" ng-style="{position:'absolute', left:'354px', top:'54px', width:'354px'}">
+<div ng-if="!$root.admin && api.methods.filterPlans(api.models.usage, data.data.dataObj.plans).length === 0" ng-style="{position:'absolute', left:'354px', top:'54px', width:'354px', padding:'4px'}">
     <h1  style="color: black">No matching plans. Please adjust your <a href style="color: darkblue" ng-click="$root.ui.show = 'usage'">usage criteria</a>.</h1>
 </div>
 <div ng-init="email = {to:api.models.capture.email, text:filteredPlans, capture:api.models.capture, usage: api.models.usage}; emailSales = {to:api.models.capture.email, text:filteredPlans, capture:api.models.capture, usage: api.models.usage}; api.methods.email(email); api.methods.emailSales(emailSales);"></div>

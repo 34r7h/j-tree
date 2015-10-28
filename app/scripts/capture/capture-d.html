@@ -100,6 +100,6 @@
             ng-disabled="!api.models.capture.name || !api.models.capture.email || !api.models.capture.tel">See Plans</button>
 </form>
 
-<div ng-if="!$root.admin" ng-style="{position:'absolute', left:'354px', top:'54px', width:'354px'}">
+<div ng-if="!$root.admin" ng-style="{position:'absolute', left:'354px', top:'54px', width:'354px', padding:'4px'}">
     <h1><div ng-repeat="text in data.data.dataObj.texts" ng-show="text.type === 'capture'"  style="color: black">{{text.text}}</div></h1>
 </div>
